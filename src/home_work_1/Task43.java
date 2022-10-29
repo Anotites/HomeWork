@@ -17,10 +17,10 @@ public class Task43 {
                     "выбрав другое значение.");
         } else if (number1 % number2 == 0) {
             System.out.println("1 число без остатка делится на 2 число.");
-        } else if (number2 % number1 == 0) {
-            System.out.println("2 число без остатка делится на 1 число.");
         } else {
-            System.out.println("Ваши числа не делятся без остатка друг на друга.");
+            System.out.println("1 число без остатка не делится на 2 число. " +
+                    "Их частное равно " + (double) number1 / number2 + ". Остаток от деления " +
+                    "равен " + number1 % number2);
         }
     }
 }
