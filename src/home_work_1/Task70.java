@@ -10,8 +10,8 @@ public class Task70 {
                 "запятые или прочие символы. ");
 
         // Формулы далее это перевод строки в массив цифр.
-        String toIncert = console.nextLine();
-        String toSplit[] = toIncert.split(" ");
+        String toInsert = console.nextLine();
+        String toSplit[] = toInsert.split(" ");
         int toFormat[] = new int[toSplit.length];
 
         for (int i = 0; i < toSplit.length; i++) {
