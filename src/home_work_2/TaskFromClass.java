@@ -22,11 +22,13 @@ public class TaskFromClass {
     }
 
     public static void sort(int[] arr) {
-        for (int i = arr.length - 1; i > 0; i--) {
-            if (arr[i] < arr[i - 1]) {
-                int temporaryNumber = arr[i];
-                arr[i] = arr[i - 1];
-                arr[i - 1] = temporaryNumber;
+        for (int j = 0; j < arr.length; j++) {
+            for (int i = arr.length - 1; i > 0; i--) {
+                if (arr[i] < arr[i - 1]) {
+                    int temporaryNumber = arr[i];
+                    arr[i] = arr[i - 1];
+                    arr[i - 1] = temporaryNumber;
+                }
             }
         }
     }
