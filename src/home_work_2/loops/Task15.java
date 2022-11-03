@@ -1,4 +1,4 @@
-package home_work_2;
+package home_work_2.loops;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -66,7 +66,7 @@ public class Task15 {
             do {
                 System.out.println("Введите число, что будет минимальным в диапазоне.");
                 min = console.nextInt();
-            } while (min <= 0);
+            } while (min <= 0 || min > max);
 
             do {
                 System.out.println("Введите шаг.");
@@ -175,6 +175,8 @@ public class Task15 {
     public static void printFibonacciArray(int number) {
         int numbers[] = new int[number];
 
+        //ниже код для классического ряда Фибоначчи (в условии ряд же начинается с 1 2 3, а не 0 1 1 2 3,
+        // код для ряда с началом 1 2 3 написан ниже в комментарии)
         if (number == 1) {
             numbers[0] = 0;
         } else if (number == 2) {
@@ -187,8 +189,26 @@ public class Task15 {
                 numbers[i] = numbers[i - 2] + numbers[i - 1];
             }
         }
+
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");
         }
+
+//        if (number == 1) {
+//            numbers[0] = 1;
+//        } else if (number == 2) {
+//            numbers[0] = 1;
+//            numbers[1] = 2;
+//        } else {
+//            numbers[0] = 1;
+//            numbers[1] = 2;
+//            for (int i = 2; i < (number); i++) {
+//                numbers[i] = numbers[i - 2] + numbers[i - 1];
+//            }
+//        }
+//
+//        for (int i = 0; i < numbers.length; i++) {
+//            System.out.print(numbers[i] + " ");
+//        }
     }
 }

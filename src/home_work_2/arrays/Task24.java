@@ -163,7 +163,7 @@ public class Task24 {
         int[] initial = arrayRandom(50, 100);
 //        int[] initial = arrayFromConsole();
 
-//        метод, чтобы убрать индексы в промежутке (сделано факультативно).
+//        метод, чтобы убрать индексы в промежутке (сделано факультативно, для интереса).
 //        for (int i = 0; i < initial.length; i++) {
 //            if (i >= start) {
 //                if(i + (end - start + 1)>initial.length-1) {

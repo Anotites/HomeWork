@@ -1,29 +1,32 @@
-package home_work_2;
+package home_work_2.loops;
 
 public class Task11 {
     public static void main(String[] args) {
-        loop(5);
-        recursion (5);
-        System.out.println(recursion (5));
+        long number = 10;
+        long numberWithLoop = loop(number);
+        long numberWithRecursion = recursion(number);
+        System.out.println(numberWithLoop);
+        System.out.println(numberWithRecursion);
     }
 
-    public static void loop(long number) {
+    public static long loop(long number) {
+        long result = 1;
         if (number <= 0) {
             System.out.println("Введите положительное число как аргумент.");
         } else {
-            long result = 1;
             for (long i = 1; i <= number; i++) {
                 result = result * i;
             }
-            System.out.println(result);
         }
+        return result;
     }
+
     public static long recursion(long number) {
         if (number <= 1) {
             return 1;
         } else {
-           return number*recursion(number-1);
-            }
+            return number * recursion(number - 1);
         }
     }
+}
 
