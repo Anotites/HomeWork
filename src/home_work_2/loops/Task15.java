@@ -124,8 +124,8 @@ public class Task15 {
     }
 
     public static void printTheBiggestNumberFromArray(int[] arr) {
-        for (int j = 0; j < arr.length; j++) {
-            for (int i = arr.length - 1; i > 0; i--) {
+        for (int j = 0; j < arr.length-1; j++) {
+            for (int i = arr.length - 1; i > j; i--) {
                 if (arr[i] < arr[i - 1]) {
                     int temporaryNumber = arr[i];
                     arr[i] = arr[i - 1];

@@ -1,29 +1,9 @@
-package home_work_2;
+package home_work_2.utils;
 
-import java.util.Scanner;
-
-public class TaskFromClass {
-    public static void main(String[] args) {
-
-        Scanner console = new Scanner(System.in);
-        System.out.println("Введите размер массива");
-        int count = console.nextInt();
-
-        int[] array = new int[count];
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Введите число для ячейки " + i);
-            array[i] = console.nextInt();
-        }
-        printArray(array);
-        sort(array);
-        System.out.println();
-        printArray(array);
-    }
-
+public class SortsUtils {
     public static void sort(int[] arr) {
-        for (int j = 0; j < arr.length; j++) {
-            for (int i = arr.length - 1; i > 0; i--) {
+        for (int j = 0; j < arr.length-1; j++) {
+            for (int i = arr.length - 1; i > j; i--) {
                 if (arr[i] < arr[i - 1]) {
                     int temporaryNumber = arr[i];
                     arr[i] = arr[i - 1];
@@ -33,9 +13,30 @@ public class TaskFromClass {
         }
     }
 
-    public static void printArray(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+    public static void shake(int[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+        int count = 1;
+        while ((left < right) && count > 0) {
+            count = 0;
+            for (int i = left; i < right; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    count = 1;
+                }
+            }
+            right--;
+            for (int i = right; i > left; i--) {
+                if (arr[i - 1] > arr[i]) {
+                    int temp = arr[i];
+                    arr[i] = arr[i - 1];
+                    arr[i - 1] = temp;
+                    count = 1;
+                }
+            }
+            left++;
         }
     }
 }

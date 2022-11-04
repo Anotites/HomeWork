@@ -52,7 +52,7 @@ public class Task24 {
         return result;
     }
 
-    public static int MaxNumberWithEvenIndex() {
+    public static int maxNumberWithEvenIndex() {
         int[] initial = arrayRandom(50, 100);
 //        int[] initial = arrayFromConsole();
         int even = 0;
