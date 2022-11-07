@@ -66,7 +66,7 @@ public class ArraysIteration {
         System.out.println("");
     }
 
-    public static void printReversedElement() {
+    public static void printReversedElements() {
         int[] arr = arrayFromConsole();
         int i = arr.length - 1;
         int b = arr.length - 1;

@@ -1,6 +1,9 @@
 package home_work_2.arrays;
 
+import static home_work_2.arrays.ArraysIteration.printElements;
+import static home_work_2.arrays.ArraysIteration.printReversedElements;
 import static home_work_2.arrays.Task24.*;
+import static home_work_2.utils.ArraysUtils.arrayRandom;
 
 public class ArraysMain {
     public static void main(String[] args) {
@@ -14,7 +17,7 @@ public class ArraysMain {
 
 //        printElements();
 //        printEvery2thElement();
-//        printReversedElement();
+//        printReversedElements();
 
 //        int container3 = sumOfEvenPositiveNumbers();
 //        System.out.print(container3);
