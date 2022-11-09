@@ -1,4 +1,4 @@
-package home_work_3;
+package additional.strings;
 
 public class Task3 {
     public static String toWeek(int day) {

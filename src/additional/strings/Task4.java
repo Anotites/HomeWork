@@ -1,4 +1,4 @@
-package home_work_3;
+package additional.strings;
 
 public class Task4 {
     public static String toHoursMinuteSecondMillisecond(long millisecond, boolean shortFormat) {

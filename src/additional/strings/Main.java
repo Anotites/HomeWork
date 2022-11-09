@@ -1,7 +1,7 @@
-package home_work_3;
+package additional.strings;
 
-import static home_work_3.Task3.toWeek;
-import static home_work_3.Task4.toHoursMinuteSecondMillisecond;
+import static additional.strings.Task3.toWeek;
+import static additional.strings.Task4.toHoursMinuteSecondMillisecond;
 
 public class Main {
     public static void main(String[] args) {
