@@ -6,6 +6,11 @@ public class Task16 {
         multiplicationTable(number);
     }
 
+    /**
+     * Метод, строящий таблицу умножения до определенного числа.
+     *
+     * @param number До какого числа необходимо построить таблицу умножения на 10?
+     */
     public static void multiplicationTable(int number) {
         System.out.println("");
         System.out.println("\t\t\t" + "Таблица умножения");

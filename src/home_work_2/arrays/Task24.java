@@ -4,14 +4,18 @@ import static home_work_2.utils.ArraysUtils.arrayRandom;
 
 public class Task24 {
 
-    // В условии задачи было сказано, что рандомные числа будут от 0 до 100. Нам нужно использовать массив из задачи в
-    // задаче 2.4. В задаче 2.4 сказано, что в массиве есть и положительные и отрицательные числа. Я буду использовать массив
-    // из задачи, но в методе из задачи 2.4 пропишу условие, чтобы искались положительные числа из массива, чтобы
+    // В условии задачи 2.1.2 было сказано, что рандомные числа будут от 0 до 99. Нам нужно использовать массив из задачи 2.1.2 в
+    // задаче 2.4. В задаче 2.4 сказано, что в массиве есть и положительные и отрицательные числа (задача 2.4.1). Я буду использовать массив
+    // из задачи 2.1.2, но в методе из задачи 2.4 пропишу условие, чтобы искались положительные числа из массива, чтобы
     // это условие работало на других массивах (где есть и отрицательные числа).
 
+    /**
+     * Метод, находящий сумму четных положительных элементов массива.
+     *
+     * @return Сумма четных положительных элементов массива. Массив будет сформирован рандомно.
+     */
     public static int sumOfEvenPositiveNumbers() {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
         int positive = 0;
 
         for (int i = 0; i < initial.length; i++) {
@@ -52,9 +56,13 @@ public class Task24 {
         return result;
     }
 
+    /**
+     * Метод, находящий максимальный элемент из элементов массива с четными индексами.
+     *
+     * @return Максимальный из элементов массива с четными индексами. Массив будет сформирован рандомно.
+     */
     public static int maxNumberWithEvenIndex() {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
         int even = 0;
 
         for (int k = 0; k < initial.length; k++) {
@@ -83,10 +91,14 @@ public class Task24 {
         return maxNumber;
     }
 
+    /**
+     * Метод, выводящий элементы массива, которые меньше среднего арифметического элементов массива.
+     *
+     * @return Элементы массива, которые меньше среднего арифметического. Массив будет сформирован рандомно.
+     */
     public static int[] elementsLessThanAverage() {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
-        int average = 0;
+        int average;
         int sum = 0;
 
         for (int k = 0; k < initial.length; k++) {
@@ -114,9 +126,11 @@ public class Task24 {
         return lessThanAverageArr;
     }
 
+    /**
+     * Метод, определяющий два наименьших (минимальных) элемента массива. Массив будет сформирован рандомно.
+     */
     public static void twoMinElements() {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
 
         int theMostMinimal = initial[0];
 
@@ -126,7 +140,7 @@ public class Task24 {
             }
         }
 
-        int theMinimal = 0;
+        int theMinimal;
         int a = 0;
 
 
@@ -159,9 +173,16 @@ public class Task24 {
         System.out.print("Два минимальных числа из массива равны " + theMostMinimal + " и " + theMinimal + ".");
     }
 
+    /**
+     * Метод, возвращающий сжатый массив без элементов, принадлежащих заданному интервалу.
+     *
+     * @param start Начальное значение интервала. Значения конечного массива должны не входить в интервал.
+     * @param end   Конечное значение интервала. Значения конечного массива должны не входить в интервал.
+     * @return Сжатый массив без элементов, принадлежащих заданному интервалу. Освободившиеся места в массиве
+     * заполнены нулями. Исходный массив формировался рандомно.
+     */
     public static int[] lessArr(int start, int end) {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
 
 //        метод, чтобы убрать индексы в промежутке (сделано факультативно, для интереса).
 //        for (int i = 0; i < initial.length; i++) {
@@ -191,9 +212,13 @@ public class Task24 {
         return initial;
     }
 
-    public static int sumNumbers() {
+    /**
+     * Массив, возвращающий сумм цифр массива.
+     *
+     * @return Сумма всех цифр массива. Исходный массив формировался рандомно.
+     */
+    public static int sumOfNumbers() {
         int[] initial = arrayRandom(50, 100);
-//        int[] initial = arrayFromConsole();
         int sum = 0;
 
         String arr = "";

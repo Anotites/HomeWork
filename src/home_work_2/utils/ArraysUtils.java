@@ -3,7 +3,11 @@ package home_work_2.utils;
 import java.util.Scanner;
 import java.util.Random;
 
+
 public class ArraysUtils {
+    /**
+     * Метод, формирующий массив из элементов, введенных пользователем через консоль.
+     */
     public static int[] arrayFromConsole() {
         Scanner console = new Scanner(System.in);
         int count;
@@ -21,6 +25,13 @@ public class ArraysUtils {
         return array;
     }
 
+    /**
+     * Метод, рандомно формирующий массив чисел.
+     *
+     * @param size              Количество элементов в массиве.
+     * @param maxValueExclusion Число, выше которого (или равно которому) не могут быть элементы в массиве.
+     * @return Рандомно заполненный массив с учетом введенных параметров.
+     */
     public static int[] arrayRandom(int size, int maxValueExclusion) {
         int[] array = new int[size];
 

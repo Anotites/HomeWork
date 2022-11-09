@@ -4,6 +4,10 @@ import static home_work_2.utils.ArraysUtils.arrayFromConsole;
 
 public class ArraysIteration {
 
+    /**
+     * Метод, позволяющий вывести в консоль все числа, введенные через консоль как элементы массива.
+     * Элементы будут выведены 4 раза (при помощи разных циклов: do....while, while, for, foreach).
+     */
     public static void printElements() {
         int[] arr = arrayFromConsole();
         int i = 0;
@@ -32,6 +36,11 @@ public class ArraysIteration {
         System.out.println("");
     }
 
+    /**
+     * Метод, позволяющий вывести в консоль каждый второй элемент массива, элементы которого будут
+     * введены через консоль.
+     * Каждый второй элемент будет выведен 4 раза (при помощи разных циклов: do....while, while, for, foreach).
+     */
     public static void printEvery2thElement() {
         int[] arr = arrayFromConsole();
         int i = 0;
@@ -66,6 +75,12 @@ public class ArraysIteration {
         System.out.println("");
     }
 
+    /**
+     * Метод, позволяющий вывести в консоль элементы массива в обратном порядке.
+     * Изначально элементы массива будут введены через консоль.
+     * Элементы в обратном порядке будут выведены 4 раза (при помощи разных циклов:
+     * do....while, while, for, foreach).
+     */
     public static void printReversedElements() {
         int[] arr = arrayFromConsole();
         int i = arr.length - 1;
@@ -109,8 +124,6 @@ public class ArraysIteration {
         for (int element : reversedArr) {
             System.out.print(element + " ");
         }
-
         System.out.println("");
-
     }
 }

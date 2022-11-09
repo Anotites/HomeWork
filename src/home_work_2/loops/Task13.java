@@ -18,6 +18,12 @@ public class Task13 {
 
     }
 
+    /**
+     * Метод для возведения числа в степень. Данные вводятся через консоль.
+     *
+     * @param base  Число, которое будут возводить в степень. Может быть отрицательным.
+     * @param power Степень. Не может быть отрицательной в конкретном методе.
+     */
     public static void pow(double base, long power) {
         double result = base;
         for (long i = 1; i < power; i++) {

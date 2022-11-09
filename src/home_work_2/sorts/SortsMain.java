@@ -96,7 +96,7 @@ public class SortsMain {
         System.out.println(" ");
 
         System.out.println("Проверка сортировки методом sort массива, введенного через консоль");
-        int[] arrFromConsole1 = arrayFromConsole();;
+        int[] arrFromConsole1 = arrayFromConsole();
         printArray(arrFromConsole1);
         sort(arrFromConsole1);
         System.out.print(" -> ");
@@ -111,6 +111,12 @@ public class SortsMain {
         printArray(arrFromConsole2);
         System.out.println(" ");
     }
+
+    /**
+     * Метод, который выводит все элементы массива в консоль.
+     *
+     * @param arr Массив для вывода в консоль.
+     */
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");

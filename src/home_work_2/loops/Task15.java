@@ -99,6 +99,11 @@ public class Task15 {
         }
     }
 
+    /**
+     * Метод, делающий реверс цифр числа.
+     *
+     * @param arr число, реверс которого необходим.
+     */
     public static void printReversedNumber(int[] arr) {
         System.out.print(arr[arr.length - 1]);
         for (int i = arr.length - 1; i > 0; i--) {
@@ -109,6 +114,11 @@ public class Task15 {
         }
     }
 
+    /**
+     * Метод, считающий четные и нечетные цифры числа.
+     *
+     * @param arr Натуральное число, для которого необходимо посчитать его четные и нечетные цифры.
+     */
     public static void findEvenAndOddNumbersFromArray(int[] arr) {
         int Even = 0;
         int Odd = 0;
@@ -123,8 +133,13 @@ public class Task15 {
                 "нечетных цифр в числе равно " + Odd + ".");
     }
 
+    /**
+     * Метод, определяющий наибольшую цифру натурального числа.
+     *
+     * @param arr Натуральное число, для которого необходимо найти наибольшую цифру.
+     */
     public static void printTheBiggestNumberFromArray(int[] arr) {
-        for (int j = 0; j < arr.length-1; j++) {
+        for (int j = 0; j < arr.length - 1; j++) {
             for (int i = arr.length - 1; i > j; i--) {
                 if (arr[i] < arr[i - 1]) {
                     int temporaryNumber = arr[i];
@@ -136,6 +151,11 @@ public class Task15 {
         System.out.println(arr[arr.length - 1]);
     }
 
+    /**
+     * Метод, определяющий вероятность четных случайных чисел.
+     *
+     * @param arr Массив, для которого будут определять вероятность четных случайных чисел.
+     */
     public static void calculateEvenNumbersFromArray(int[] arr) {
         int Even = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -147,8 +167,15 @@ public class Task15 {
                 Even * 100 / arr.length + " процентов).");
     }
 
+    /**
+     * Метод, выводящий ряд натуральных чисел в диапазоне с шагом
+     *
+     * @param max  Максимальное число из ряда.
+     * @param min  Минимальное число из ряда.
+     * @param step Шаг между 2 значениями в массиве.
+     */
     public static void printArrayWithStep(int max, int min, int step) {
-        int items = 0;
+        int items;
 
         if ((max - min) % step == 0) {
             items = ((max - min) / step) + 1;
@@ -172,6 +199,11 @@ public class Task15 {
         }
     }
 
+    /**
+     * Метод, выводящий такое количество значений из ряда Фибоначчи, сколько указал пользователь.
+     *
+     * @param number Количество значений из ряда Фибоначчи, сколько нужно вывести.
+     */
     public static void printFibonacciArray(int number) {
         int numbers[] = new int[number];
 

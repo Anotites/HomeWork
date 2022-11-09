@@ -1,8 +1,13 @@
 package home_work_2.utils;
 
 public class SortsUtils {
+    /**
+     * Метод, сортирующий пузырьковым способом массив чисел (от меньшего к большему).
+     *
+     * @param arr Массив для сортировки.
+     */
     public static void sort(int[] arr) {
-        for (int j = 0; j < arr.length-1; j++) {
+        for (int j = 0; j < arr.length - 1; j++) {
             for (int i = arr.length - 1; i > j; i--) {
                 if (arr[i] < arr[i - 1]) {
                     int temporaryNumber = arr[i];
@@ -13,6 +18,11 @@ public class SortsUtils {
         }
     }
 
+    /**
+     * Метод, сортирующий шейкерным способом массив чисел (от меньшего к большему).
+     *
+     * @param arr Массив для сортировки.
+     */
     public static void shake(int[] arr) {
         int left = 0;
         int right = arr.length - 1;

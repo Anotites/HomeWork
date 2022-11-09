@@ -1,7 +1,5 @@
 package home_work_2.loops;
 
-import java.util.Scanner;
-
 public class Task12 {
 
     public static void main(String[] args) {
@@ -9,6 +7,12 @@ public class Task12 {
         multiplication("123");
     }
 
+    /**
+     * Метод, позволяющий все цифры из числа, введенного через аргумент к исполняемой программе,
+     * перемножить между собой и вывести ход вычислений в консоль.
+     *
+     * @param toInsert Число, цифры которого будут перемножаться.
+     */
     public static void multiplication(String toInsert) {
         String lowerString = toInsert.toLowerCase();
 
