@@ -4,16 +4,15 @@ import static java.lang.Math.abs;
 
 public class Task1 {
 
-    public static String toString1(int number) {
+    public static String toString1(int numberInserted) {
         String Result = "";
 
-        if (number > 999999999 || number < -999999999) {
+        if (numberInserted > 999999999 || numberInserted < -999999999) {
             System.out.println("Вы ввели число вне заданного диапазона. Введите, " +
                     "пожалуйста, число в промежутке [-999 999 999,999 999 999] и запустите " +
                     "программу снова");
         }
-
-        number = abs(number);
+        int number = abs(numberInserted);
         if (number < 1000) {
             Result = NumberFinal(number);
         } else if (number < 1000000) {
@@ -30,7 +29,11 @@ public class Task1 {
                 Result = NumberFinal(number1) + " млн " + NumberFinalForThousands(number2) + " тыс. " + NumberFinal(number3);
             }
         }
-        return Result.replaceAll(" +", " ");
+        Result = Result.replaceAll(" +", " ");
+        if (numberInserted < 0) {
+            Result = "минус " + Result;
+        }
+        return Result;
     }
 
     public static String NumberFinal(int number) {
@@ -52,8 +55,13 @@ public class Task1 {
         } else {
             if (number1 % 10 == 0) {
                 Result1 = "";
+                number1 = number1 % 100;
             } else {
-                number1 = number1 % 10;
+                if (number1 % 100 > 1 && number1 % 100 < 20) {
+                    number1 = number1 % 100;
+                } else {
+                    number1 = number1 % 10;
+                }
             }
         }
         Result1 = switch (number1) {
@@ -83,14 +91,17 @@ public class Task1 {
 
     public static String Number2(int number2) {
         String Result2 = "";
-        int number;
+        int number = 0;
         if (number2 > 100) {
-            number = (number2 % 100) / 10;
+            if (number2 % 100 > 1 && number2 % 100 < 20) {
+                Result2 = "";
+            } else {
+                number = (number2 % 100) / 10;
+            }
         } else {
             number = number2 / 10;
         }
         switch (number) {
-            case 1 -> Result2 = "десять";
             case 2 -> Result2 = "двадцать";
             case 3 -> Result2 = "тридцать";
             case 4 -> Result2 = "сорок";
@@ -127,8 +138,13 @@ public class Task1 {
         } else {
             if (number1ForThousands % 10 == 0) {
                 Result1ForForThousands = "";
+                number1ForThousands = number1ForThousands % 100;
             } else {
-                number1ForThousands = number1ForThousands % 10;
+                if (number1ForThousands % 100 > 1 && number1ForThousands % 100 < 20) {
+                    number1ForThousands = number1ForThousands % 100;
+                } else {
+                    number1ForThousands = number1ForThousands % 10;
+                }
             }
         }
         Result1ForForThousands = switch (number1ForThousands) {
