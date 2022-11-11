@@ -3,7 +3,12 @@ package additional.strings;
 import static java.lang.Math.abs;
 
 public class Strings {
-
+    /**
+     * Метод, позволяющий произвести конвертацию переданного числа в число прописью.
+     *
+     * @param numberInserted Число, которое необходимо конвертировать в число прописью.
+     * @return Число прописью.
+     */
     public static String toString1(int numberInserted) {
         String result = "";
 
@@ -36,6 +41,13 @@ public class Strings {
         return result;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию одного разряда переданного числа в число прописью.
+     *
+     * @param number 3-значное число, составляющее один разряд искомого числа.
+     * @return 3-значное число, составляющее один разряд искомого числа, прописью.
+     */
     public static String numberFinal(int number) {
         String result = "";
         if (number < 20 && number >= 0) {
@@ -48,6 +60,13 @@ public class Strings {
         return result;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию последней цифры одного разряда в цифру прописью.
+     *
+     * @param number1 последняя цифра разряда.
+     * @return последняя цифра разряда прописью.
+     */
     public static String number1(int number1) {
         String result1;
         if (number1 < 20 && number1 >= 0) {
@@ -89,6 +108,13 @@ public class Strings {
         return result1;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию 2 цифры одного разряда в цифру прописью.
+     *
+     * @param number2 2 цифра разряда.
+     * @return 2 цифра разряда прописью.
+     */
     public static String number2(int number2) {
         String result2 = "";
         int number = 0;
@@ -114,6 +140,13 @@ public class Strings {
         return result2;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию первой цифры одного разряда в цифру прописью.
+     *
+     * @param number3 первая цифра разряда.
+     * @return первая цифра разряда прописью.
+     */
     public static String number3(int number3) {
         String result3 = "";
         int number = number3 / 100;
@@ -131,6 +164,13 @@ public class Strings {
         return result3;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию последней цифры одного разряда (для тысяч из-за другого склонения) в цифру прописью.
+     *
+     * @param number1ForThousands последняя цифра разряда (для тысяч).
+     * @return последняя цифра разряда прописью (для тысяч).
+     */
     public static String number1ForThousands(int number1ForThousands) {
         String result1ForForThousands;
         if (number1ForThousands < 20 && number1ForThousands >= 0) {
@@ -173,6 +213,13 @@ public class Strings {
         return result1ForForThousands;
     }
 
+    /**
+     * Вспомогательный метод для метода toString1. Позволяет произвести
+     * конвертацию одного разряда переданного числа в число прописью (для тысяч из-за склонения).
+     *
+     * @param number 3-значное число, составляющее один разряд искомого числа (для тысяч).
+     * @return 3-значное число, составляющее один разряд искомого числа, прописью (для тысяч).
+     */
     public static String numberFinalForThousands(int number) {
         String result = "";
         if (number < 20 && number >= 0) {
@@ -185,6 +232,12 @@ public class Strings {
         return result;
     }
 
+    /**
+     * Метод, позволяющий произвести конвертацию переданного дробного числа в число прописью.
+     *
+     * @param number Число, которое необходимо конвертировать в число прописью.
+     * @return Число прописью (с выделением целой и дробной части до сотых без округления).
+     */
     public static String toString2(double number) {
         String result = "" + number;
         String stringInteger;
@@ -219,6 +272,12 @@ public class Strings {
         return result;
     }
 
+    /**
+     * Метод, позволяющий посчитать количество прошедших недель по переданному числу дней.
+     *
+     * @param day Количество прошедших дней.
+     * @return Количество недель эквивалентное прошедшим дням.
+     */
     public static String toWeek(int day) {
         day = day / 7;
         String dayName = null;
@@ -235,6 +294,13 @@ public class Strings {
         return day + dayName;
     }
 
+    /**
+     * Метод, позволяющий конвертацию переданных миллисекунд в количество часов, минут, секунд и миллисекунд.
+     *
+     * @param millisecond Миллисекунды для перевода.
+     * @param shortFormat Тип формата. True = HH:mm:ss.SSS. False = HH часа mm минут ss секунд SSS миллисекунда.
+     * @return Количество часов, минут, секунд и миллисекунд в нужном формате.
+     */
     public static String toHoursMinuteSecondMillisecond(long millisecond, boolean shortFormat) {
         long sec = millisecond / 1000;
         millisecond = millisecond % 1000;
@@ -323,7 +389,6 @@ public class Strings {
 
             result = hours + ":" + minutes + ":" + seconds + "." + milliseconds;
         }
-
         return result;
     }
 }
