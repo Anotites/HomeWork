@@ -2,7 +2,7 @@ package additional.strings;
 
 import static java.lang.Math.abs;
 
-public class Task1 {
+public class Strings {
 
     public static String toString1(int numberInserted) {
         String result = "";
@@ -211,8 +211,8 @@ public class Task1 {
         int intInteger = Integer.parseInt(stringInteger);
         int intHundredths = Integer.parseInt(stringHundredths);
 
-        stringInteger = Task1.toString1(intInteger);
-        stringHundredths = Task1.toString1(intHundredths);
+        stringInteger = Strings.toString1(intInteger);
+        stringHundredths = Strings.toString1(intHundredths);
 
         result = stringInteger + " целых " + stringHundredths + " сотых";
         result = result.replaceAll(" +", " ");
