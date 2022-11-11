@@ -120,17 +120,17 @@ public class Task15 {
      * @param arr Натуральное число, для которого необходимо посчитать его четные и нечетные цифры.
      */
     public static void findEvenAndOddNumbersFromArray(int[] arr) {
-        int Even = 0;
-        int Odd = 0;
+        int even = 0;
+        int odd = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
-                Even += 1;
+                even += 1;
             } else {
-                Odd += 1;
+                odd += 1;
             }
         }
-        System.out.println("Количество четных цифр в числе равно " + Even + ". Количество " +
-                "нечетных цифр в числе равно " + Odd + ".");
+        System.out.println("Количество четных цифр в числе равно " + even + ". Количество " +
+                "нечетных цифр в числе равно " + odd + ".");
     }
 
     /**
@@ -157,14 +157,14 @@ public class Task15 {
      * @param arr Массив, для которого будут определять вероятность четных случайных чисел.
      */
     public static void calculateEvenNumbersFromArray(int[] arr) {
-        int Even = 0;
+        int even = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % 2 == 0) {
-                Even += 1;
+                even += 1;
             }
         }
-        System.out.println("Количество четных цифр в выборке из " + arr.length + " чисел равно " + Even + " (или " +
-                Even * 100 / arr.length + " процентов).");
+        System.out.println("Количество четных цифр в выборке из " + arr.length + " чисел равно " + even + " (или " +
+                even * 100 / arr.length + " процентов).");
     }
 
     /**
