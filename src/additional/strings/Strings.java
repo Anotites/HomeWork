@@ -245,8 +245,15 @@ public class Strings {
 
         if (number < 10000000 && number > 0 || (number > -10000000 && number < 0)) {
             int only2decimal = result.indexOf(".") + 1;
+            int dot = result.indexOf(".");
+            int resultLength = result.length();
             stringInteger = result.substring(0, only2decimal - 1);
-            stringHundredths = result.substring(only2decimal, only2decimal + 2);
+            if (dot + 2 == resultLength) {
+                stringHundredths = result.substring(only2decimal, only2decimal + 1);
+                stringHundredths = stringHundredths + "0";
+            } else {
+                stringHundredths = result.substring(only2decimal, only2decimal + 2);
+            }
         } else {
             result = result.replaceAll("\\.", "");
             int fullNumber = result.indexOf("E");
@@ -265,7 +272,7 @@ public class Strings {
         int intHundredths = Integer.parseInt(stringHundredths);
 
         stringInteger = Strings.toString1(intInteger);
-        stringHundredths = Strings.toString1(intHundredths);
+        stringHundredths = Strings.numberFinalForThousands(intHundredths);
 
         result = stringInteger + " целых " + stringHundredths + " сотых";
         result = result.replaceAll(" +", " ");
