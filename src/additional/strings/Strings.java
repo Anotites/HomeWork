@@ -242,6 +242,7 @@ public class Strings {
         String result = "" + number;
         String stringInteger;
         String stringHundredths;
+        String flag;
 
         if (number < 10000000 && number > 0 || (number > -10000000 && number < 0)) {
             int only2decimal = result.indexOf(".") + 1;
@@ -266,6 +267,11 @@ public class Strings {
             }
             stringInteger = result.substring(0, intQuantity);
             stringHundredths = result.substring(intQuantity, intQuantity + 2);
+            flag = String.valueOf(stringHundredths.endsWith("E"));
+            if (flag.equals("true")) {
+                stringHundredths = stringHundredths.replaceAll("E", "");
+                stringHundredths = stringHundredths + "0";
+            }
         }
 
         int intInteger = Integer.parseInt(stringInteger);
