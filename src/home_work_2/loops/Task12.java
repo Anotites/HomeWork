@@ -3,8 +3,8 @@ package home_work_2.loops;
 public class Task12 {
 
     public static void main(String[] args) {
-
-        multiplication("123");
+        String number = args[0];
+        multiplication(number);
     }
 
     /**
