@@ -48,4 +48,7 @@ public class CalculatorWithCounterAutoAggregationInterface {
     public long getCountOperation() {
         return countOperation;
     }
+
+    public void save() {
+    }
 }
