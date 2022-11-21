@@ -2,50 +2,57 @@ package home_work_3.calcs.additional;
 
 import home_work_3.calcs.api.ICalculator;
 
-public class CalculatorWithCounterAutoAggregationInterface {
+public class CalculatorWithMemory {
     ICalculator iCalculator;
-    long countOperation = 0;
+    double result;
+    double finalResult;
 
-    public CalculatorWithCounterAutoAggregationInterface(ICalculator iCalculator) {
+    public CalculatorWithMemory(ICalculator iCalculator) {
         this.iCalculator = iCalculator;
     }
 
     public double division(double numerator, double denominator) {
-        countOperation = countOperation + 1;
+        result = iCalculator.division(numerator, denominator);
         return iCalculator.division(numerator, denominator);
     }
 
     public double multiplication(double factor1, double factor2) {
-        countOperation = countOperation + 1;
+        result = iCalculator.multiplication(factor1, factor2);
         return iCalculator.multiplication(factor1, factor2);
     }
 
     public double subtraction(double minuend, double subtrahend) {
-        countOperation = countOperation + 1;
+        result = iCalculator.subtraction(minuend, subtrahend);
         return iCalculator.subtraction(minuend, subtrahend);
     }
 
     public double addition(double addend1, double addend2) {
-        countOperation = countOperation + 1;
+        result = iCalculator.addition(addend1, addend2);
         return iCalculator.addition(addend1, addend2);
     }
 
     public double pow(double base, double power) {
-        countOperation = countOperation + 1;
+        result = iCalculator.pow(base, power);
         return iCalculator.pow(base, power);
     }
 
     public double absoluteValue(double value) {
-        countOperation = countOperation + 1;
+        result = iCalculator.absoluteValue(value);
         return iCalculator.absoluteValue(value);
     }
 
     public double squareRoot(double base) {
-        countOperation = countOperation + 1;
+        result = iCalculator.squareRoot(base);
         return iCalculator.squareRoot(base);
     }
 
-    public long getCountOperation() {
-        return countOperation;
+    public void save() {
+        finalResult = result;
+    }
+
+    public double load() {
+        save();
+        result = 0;
+        return finalResult;
     }
 }
