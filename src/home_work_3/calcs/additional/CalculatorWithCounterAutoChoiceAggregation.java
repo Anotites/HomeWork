@@ -9,7 +9,7 @@ public class CalculatorWithCounterAutoChoiceAggregation {
     private CalculatorWithMathCopy calculatorWithMathCopy;
     private CalculatorWithMathExtends calculatorWithMathExtends;
 
-    long countOperation = 0;
+    private long countOperation = 0;
 
     public CalculatorWithCounterAutoChoiceAggregation(CalculatorWithOperator calculatorWithOperator) {
         this.calculatorWithOperator = calculatorWithOperator;

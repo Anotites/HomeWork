@@ -4,7 +4,7 @@ import home_work_3.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
 
-    long countOperation = 0;
+    private long countOperation = 0;
 
     public double division(double numerator, double denominator) {
         countOperation = countOperation + 1;

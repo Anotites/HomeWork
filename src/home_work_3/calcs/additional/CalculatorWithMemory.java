@@ -3,9 +3,9 @@ package home_work_3.calcs.additional;
 import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithMemory {
-    ICalculator iCalculator;
-    double result;
-    double finalResult;
+    private ICalculator iCalculator;
+    private double result;
+    private double finalResult;
 
     public CalculatorWithMemory(ICalculator iCalculator) {
         this.iCalculator = iCalculator;

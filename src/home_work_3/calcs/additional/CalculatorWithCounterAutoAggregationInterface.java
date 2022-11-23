@@ -3,8 +3,8 @@ package home_work_3.calcs.additional;
 import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithCounterAutoAggregationInterface {
-    ICalculator iCalculator;
-    long countOperation = 0;
+    private ICalculator iCalculator;
+    private long countOperation = 0;
 
     public CalculatorWithCounterAutoAggregationInterface(ICalculator iCalculator) {
         this.iCalculator = iCalculator;

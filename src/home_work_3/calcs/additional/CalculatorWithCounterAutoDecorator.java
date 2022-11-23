@@ -3,8 +3,8 @@ package home_work_3.calcs.additional;
 import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithCounterAutoDecorator implements ICalculator {
-    static ICalculator iCalculator;
-    long countOperation = 0;
+    private static ICalculator iCalculator;
+    private long countOperation = 0;
 
     public static ICalculator getCalculator() {
         return new CalculatorWithCounterAutoDecorator(iCalculator);

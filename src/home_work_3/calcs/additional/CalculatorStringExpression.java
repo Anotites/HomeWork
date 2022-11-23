@@ -17,8 +17,8 @@ public class CalculatorStringExpression {
     }
 
     public static class Operator {
-        OperatorType type;
-        String value;
+        private OperatorType type;
+        private String value;
 
         public Operator(OperatorType type, String value) {
             this.type = type;

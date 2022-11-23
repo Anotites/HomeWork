@@ -4,7 +4,7 @@ import home_work_3.calcs.simple.CalculatorWithMathCopy;
 
 public class CalculatorWithCounterAutoAggregation {
     private CalculatorWithMathCopy calculatorWithMathCopy;
-    long countOperation = 0;
+    private long countOperation = 0;
 
     public CalculatorWithCounterAutoAggregation(CalculatorWithMathCopy calculatorWithMathCopy) {
         this.calculatorWithMathCopy = calculatorWithMathCopy;

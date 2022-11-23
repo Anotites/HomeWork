@@ -4,9 +4,9 @@ import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithMemoryDecorator implements ICalculator {
 
-    static ICalculator iCalculator;
-    double result;
-    double finalResult;
+    private static ICalculator iCalculator;
+    private double result;
+    private double finalResult;
 
     public CalculatorWithMemoryDecorator(ICalculator iCalculator) {
         this.iCalculator = iCalculator;

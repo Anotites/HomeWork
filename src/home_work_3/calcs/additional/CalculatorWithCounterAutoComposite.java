@@ -4,7 +4,7 @@ import home_work_3.calcs.simple.CalculatorWithMathCopy;
 
 public class CalculatorWithCounterAutoComposite {
 
-    long countOperation = 0;
+    private long countOperation = 0;
     private CalculatorWithMathCopy calculatorWithMathCopy;
 
     public CalculatorWithCounterAutoComposite() {
