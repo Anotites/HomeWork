@@ -45,6 +45,12 @@ public class CalculatorWithCounterAutoAggregation {
         return calculatorWithMathCopy.squareRoot(base);
     }
 
+    /**
+     * Метод, считающий в Main использование прочих методов этого класса. Если метод с данным названием
+     * будет далее встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @return Количество использований методов этого класса в Main.
+     */
     public long getCountOperation() {
         return countOperation;
     }

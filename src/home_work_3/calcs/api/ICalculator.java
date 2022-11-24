@@ -1,18 +1,71 @@
 package home_work_3.calcs.api;
 
 public interface ICalculator {
+    /**
+     * Метод, который позволяет делить параметры друг на друга. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param numerator   Делимое.
+     * @param denominator Делитель.
+     * @return Результат деления.
+     */
+    double division(double numerator, double denominator);
 
-    public double division(double numerator, double denominator);
+    /**
+     * Метод, который позволяет умножать параметры друг на друга. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param factor1 Множитель 1.
+     * @param factor2 Множитель 2.
+     * @return Результат умножения.
+     */
+    double multiplication(double factor1, double factor2);
 
-    public double multiplication(double factor1, double factor2);
+    /**
+     * Метод, который позволяет вычитать 1 параметр из другого. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param minuend    Уменьшаемое.
+     * @param subtrahend Вычитаемое.
+     * @return Результат вычитания.
+     */
+    double subtraction(double minuend, double subtrahend);
 
-    public double subtraction(double minuend, double subtrahend);
+    /**
+     * Метод, который позволяет складывать 2 параметра. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param addend1 Слагаемое 1.
+     * @param addend2 Слагаемое 2.
+     * @return Результат сложения.
+     */
+    double addition(double addend1, double addend2);
 
-    public double addition(double addend1, double addend2);
+    /**
+     * Метод, который позволяет возводить указанное число в указанную степень. Если метод с данным названием
+     * будет далее встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param base  Число для возведения в степень.
+     * @param power Степень.
+     * @return Результат возведения в степень.
+     */
+    double pow(double base, double power);
 
-    public double pow(double base, double power);
+    /**
+     * Метод, возвращающий модуль параметра. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param value Число для выведения модуля из него.
+     * @return Модуль числа (абсолютное значение).
+     */
+    double absoluteValue(double value);
 
-    public double absoluteValue(double value);
-
-    public double squareRoot(double base);
+    /**
+     * Метод, высчитывающий квадратный корень из числа. Если метод с данным названием будет далее
+     * встречаться в этом пакете, то он будет выполнять такое же действие.
+     *
+     * @param base Число, из которого будут высчитывать квадратный корень.
+     * @return Квадратный корень из числа.
+     */
+    double squareRoot(double base);
 }
