@@ -15,19 +15,44 @@ public class Task42 {
         System.out.println("Введите 3 число.");
         int number3 = console.nextInt();
 
-        // Вычисляем среднее число.
+        System.out.println("Среднее число среди ваших чисел " + avNumber(number1, number2, number3));
+    }
+
+    /**
+     * Метод, который позволяет вычислять среднее число среди 3 введенных чисел.
+     *
+     * @param number1 1 введенное число.
+     * @param number2 2 введенное число.
+     * @param number3 3 введенное число.
+     * @return Среднее число.
+     */
+    public static int avNumber(int number1, int number2, int number3) {
+        int result = 0;
         if (number1 > number2 && number1 > number3 && number2 > number3) {
-            System.out.println("Среднее число среди ваших чисел " + number2);
+            result = number2;
         } else if (number1 > number2 && number1 > number3 && number2 < number3) {
-            System.out.println("Среднее число среди ваших чисел " + number3);
+            result = number3;
         } else if (number1 > number2 && number1 < number3 && number2 < number3) {
-            System.out.println("Среднее число среди ваших чисел " + number1);
+            result = number1;
         } else if (number1 < number2 && number1 > number3 && number2 > number3) {
-            System.out.println("Среднее число среди ваших чисел " + number1);
+            result = number1;
         } else if (number1 < number2 && number1 < number3 && number2 > number3) {
-            System.out.println("Среднее число среди ваших чисел " + number3);
+            result = number3;
         } else if (number1 < number2 && number1 < number3 && number2 < number3) {
-            System.out.println("Среднее число среди ваших чисел " + number2);
+            result = number2;
+        } else if (number1 == number2 && number2 == number3) {
+            result = number1;
+        } else if (number1 == number2 && number2 > number3) {
+            result = number3;
+        } else if (number1 == number3 && number2 > number3) {
+            result = number3;
+        } else if (number2 == number3 && number2 > number1) {
+            result = number1;
+        } else if (number2 == number3 && number2 < number1) {
+            result = number2;
+        } else if (number1 == number2 && number2 < number3) {
+            result = number2;
         }
+        return result;
     }
 }

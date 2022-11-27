@@ -1,21 +1,17 @@
 package home_work_1;
 
-import java.util.Scanner;
+import home_work_1.api.ICommunicationPrinter;
 
-public class Task62 {
-    public static void main(String[] args) {
-        Scanner console = new Scanner(System.in);
-
-        System.out.println("Как тебя зовут?");
-        String name = console.nextLine();
-
+public class Task62 implements ICommunicationPrinter {
+    public String welcome(String name) {
+        String result;
         if (name.equals("Вася")) {
-            System.out.println("Привет!");
-            System.out.println("Я так долго тебя ждал!");
+            result = "Привет!\nЯ так долго тебя ждал!";
         } else if (name.equals("Анастасия")) {
-            System.out.println("Я так долго тебя ждал!");
+            result = "Я так долго тебя ждал!";
         } else {
-            System.out.println("Добрый день, а вы кто?");
+            result = "Добрый день, а вы кто?";
         }
+        return result;
     }
 }
