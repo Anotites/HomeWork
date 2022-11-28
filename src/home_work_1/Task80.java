@@ -11,18 +11,29 @@ public class Task80 {
 
         int initialNumber = console.nextInt();
 
-        // Делаем проверку на то, что пользователь ввел число в допустимом диапазоне.
-        if (initialNumber > 127 || initialNumber < -128) {
-            System.out.println("Вы ввели число вне заданного диапазона. Запустите программу снова и введите, " +
-                    "пожалуйста, число в промежутке [-128,127]");
-        } else {
-            byte number = (byte) initialNumber;
-            String binaryNumber = toBinaryString(number);
-            System.out.println(binaryNumber);
-        }
+        System.out.println(finalOrdinaryNumber(initialNumber));
     }
 
-    // Метод на перевод числа из 10-ной системы счисления в 2-ную.
+    /**
+     * Метод, преобразующий число в 10-ной системе счисления в число в 2-ной системе счисления.
+     * Метод также проверку на то, что пользователь ввел число в допустимом диапазоне.
+     * Можно было бы пользоваться только кодом toBinaryString, но хотелось бы, чтобы если пользователь вводил число,
+     * которое не могло бы быть byte, то программа давала бы не ошибку, а предупреждение.
+     *
+     * @param initialNumber Число в 10-ной системе счисления, для которого мы хотим получить представление в 2-ной системе.
+     * @return Заданное число в 2-ной системе счисления.
+     */
+    public static String finalOrdinaryNumber(int initialNumber) {
+        String result;
+        if (initialNumber > 127 || initialNumber < -128) {
+            result = "Вы ввели число вне заданного диапазона. Запустите программу снова и введите, " +
+                    "пожалуйста, число в промежутке [-128,127].";
+        } else {
+            byte number = (byte) initialNumber;
+            result = toBinaryString(number);
+        }
+        return result;
+    }
 
     /**
      * Метод, преобразующий число в 10-ной системе счисления в число в 2-ной системе счисления.
@@ -46,7 +57,7 @@ public class Task80 {
         // чисел не должно быть.
 
         for (int i = 0; i <= 7; i++) {
-            numberForLoop = (byte) Math.abs((int) numberForLoop);
+            numberForLoop = (byte) Math.abs(numberForLoop);
             int k = numberForLoop % 2;
             numberForLoop /= 2;
             reversedBinaryString = reversedBinaryString.concat(String.valueOf(k));
@@ -92,6 +103,10 @@ public class Task80 {
             } else {
                 binaryString = binaryString.substring(0, 6) + "10";
             }
+        }
+
+        if (number == -128) {
+            binaryString = "10000000";
         }
         return binaryString;
     }
