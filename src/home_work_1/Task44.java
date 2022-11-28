@@ -27,7 +27,7 @@ public class Task44 {
         double toKilobytes = 0.0009765625;
         double toBytes = 1024;
         double result;
-        String resultString = "";
+        String resultString;
 
         if (choice == 1 && number >= 0) {
             result = number * toKilobytes;
