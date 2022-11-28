@@ -22,6 +22,11 @@ public class Task70Test {
     }
 
     @Test
+    public void checkOrdinaryNumbersTwoMethod() {
+        Assertions.assertEquals("(123) 456-7890", createPhoneNumber(makeArray("1 2 3 4 5 6 7 8 9 0")));
+    }
+
+    @Test
     public void checkWrongNumbers() {
         Assertions.assertEquals("Вы ввели неверное количество цифр, перепроверьте свои данные " +
                 "и запустите программу снова.", createPhoneNumber(wrong));
