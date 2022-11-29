@@ -1,7 +1,5 @@
 package home_work_2.arrays;
 
-import static home_work_2.utils.ArraysUtils.arrayRandom;
-
 public class Task24 {
 
     // В условии задачи 2.1.2 было сказано, что рандомные числа будут от 0 до 99. Нам нужно использовать массив из задачи 2.1.2 в
@@ -9,17 +7,20 @@ public class Task24 {
     // из задачи 2.1.2, но в методе из задачи 2.4 пропишу условие, чтобы искались положительные числа из массива, чтобы
     // это условие работало на других массивах (где есть и отрицательные числа).
 
+    // Убрала исходное условие, что массив должен быть рандомным
+    // (можно просто в параметры потом передавать рандомный массив).
+
     /**
      * Метод, находящий сумму четных положительных элементов массива.
      *
-     * @return Сумма четных положительных элементов массива. Массив будет сформирован рандомно.
+     * @param initial Массив для программы.
+     * @return Сумма четных положительных элементов массива.
      */
-    public static int sumOfEvenPositiveNumbers() {
-        int[] initial = arrayRandom(50, 100);
+    public static int sumOfEvenPositiveNumbers(int[] initial) {
         int positive = 0;
 
-        for (int i = 0; i < initial.length; i++) {
-            if (initial[i] > 0) {
+        for (int value : initial) {
+            if (value > 0) {
                 positive++;
             }
         }
@@ -27,17 +28,17 @@ public class Task24 {
         int[] positiveArr = new int[positive];
         int positiveIndex = 0;
 
-        for (int j = 0; j < initial.length; j++) {
-            if (initial[j] > 0) {
-                positiveArr[positiveIndex] = initial[j];
+        for (int i : initial) {
+            if (i > 0) {
+                positiveArr[positiveIndex] = i;
                 positiveIndex++;
             }
         }
 
         int even = 0;
 
-        for (int k = 0; k < positiveArr.length; k++) {
-            if (positiveArr[k] % 2 == 0) {
+        for (int j : positiveArr) {
+            if (j % 2 == 0) {
                 even++;
             }
         }
@@ -46,9 +47,9 @@ public class Task24 {
         int evenNumber = 0;
         int result = 0;
 
-        for (int l = 0; l < positiveArr.length; l++) {
-            if (positiveArr[l] % 2 == 0) {
-                evenArr[evenNumber] = positiveArr[l];
+        for (int i : positiveArr) {
+            if (i % 2 == 0) {
+                evenArr[evenNumber] = i;
                 result = result + evenArr[evenNumber];
                 evenNumber++;
             }
@@ -59,10 +60,10 @@ public class Task24 {
     /**
      * Метод, находящий максимальный элемент из элементов массива с четными индексами.
      *
-     * @return Максимальный из элементов массива с четными индексами. Массив будет сформирован рандомно.
+     * @param initial Массив для программы.
+     * @return Максимальный из элементов массива с четными индексами.
      */
-    public static int maxNumberWithEvenIndex() {
-        int[] initial = arrayRandom(50, 100);
+    public static int maxNumberWithEvenIndex(int[] initial) {
         int even = 0;
 
         for (int k = 0; k < initial.length; k++) {
@@ -83,9 +84,9 @@ public class Task24 {
 
         int maxNumber = evenArr[0];
 
-        for (int i = 0; i < evenArr.length; i++) {
-            if (maxNumber < evenArr[i]) {
-                maxNumber = evenArr[i];
+        for (int j : evenArr) {
+            if (maxNumber < j) {
+                maxNumber = j;
             }
         }
         return maxNumber;
@@ -94,22 +95,22 @@ public class Task24 {
     /**
      * Метод, выводящий элементы массива, которые меньше среднего арифметического элементов массива.
      *
-     * @return Элементы массива, которые меньше среднего арифметического. Массив будет сформирован рандомно.
+     * @param initial Массив для программы.
+     * @return Элементы массива, которые меньше среднего арифметического.
      */
-    public static int[] elementsLessThanAverage() {
-        int[] initial = arrayRandom(50, 100);
-        int average;
-        int sum = 0;
+    public static int[] elementsLessThanAverage(int[] initial) {
+        double average;
+        double sum = 0d;
 
-        for (int k = 0; k < initial.length; k++) {
-            sum = sum + initial[k];
+        for (int i : initial) {
+            sum = sum + i;
         }
 
         average = sum / initial.length;
         int numberForNewArr = 0;
 
-        for (int l = 0; l < initial.length; l++) {
-            if (initial[l] < average) {
+        for (int i : initial) {
+            if (i < average) {
                 numberForNewArr++;
             }
         }
@@ -117,9 +118,9 @@ public class Task24 {
         int[] lessThanAverageArr = new int[numberForNewArr];
         int lessThanAverageIndex = 0;
 
-        for (int l = 0; l < initial.length; l++) {
-            if (initial[l] < average) {
-                lessThanAverageArr[lessThanAverageIndex] = initial[l];
+        for (int i : initial) {
+            if (i < average) {
+                lessThanAverageArr[lessThanAverageIndex] = i;
                 lessThanAverageIndex++;
             }
         }
@@ -127,22 +128,22 @@ public class Task24 {
     }
 
     /**
-     * Метод, определяющий два наименьших (минимальных) элемента массива. Массив будет сформирован рандомно.
+     * Метод, определяющий два наименьших (минимальных) элемента массива.
+     *
+     * @param initial Массив для программы.
+     * @return 2 наименьших элемента массива.
      */
-    public static void twoMinElements() {
-        int[] initial = arrayRandom(50, 100);
-
+    public static String twoMinElements(int[] initial) {
         int theMostMinimal = initial[0];
 
-        for (int i = 0; i < initial.length; i++) {
-            if (theMostMinimal > initial[i]) {
-                theMostMinimal = initial[i];
+        for (int k : initial) {
+            if (theMostMinimal > k) {
+                theMostMinimal = k;
             }
         }
 
         int theMinimal;
         int a = 0;
-
 
         for (int element : initial) {
             if (element == theMostMinimal) {
@@ -155,34 +156,34 @@ public class Task24 {
         } else {
             int[] arrWithoutMin = new int[initial.length - 1];
             int count = 0;
-            for (int j = 0; j < initial.length; j++) {
-                if (initial[j] == theMostMinimal) {
+            for (int k : initial) {
+                if (k == theMostMinimal) {
                 } else {
-                    arrWithoutMin[count] = initial[j];
+                    arrWithoutMin[count] = k;
                     count++;
                 }
             }
 
             theMinimal = arrWithoutMin[0];
-            for (int i = 0; i < arrWithoutMin.length; i++) {
-                if (theMinimal > arrWithoutMin[i]) {
-                    theMinimal = arrWithoutMin[i];
+            for (int j : arrWithoutMin) {
+                if (theMinimal > j) {
+                    theMinimal = j;
                 }
             }
         }
-        System.out.print("Два минимальных числа из массива равны " + theMostMinimal + " и " + theMinimal + ".");
+        return "Два минимальных числа из массива равны " + theMostMinimal + " и " + theMinimal + ".";
     }
 
     /**
      * Метод, возвращающий сжатый массив без элементов, принадлежащих заданному интервалу.
      *
-     * @param start Начальное значение интервала. Значения конечного массива должны не входить в интервал.
-     * @param end   Конечное значение интервала. Значения конечного массива должны не входить в интервал.
+     * @param start   Начальное значение интервала. Значения конечного массива должны не входить в интервал.
+     * @param end     Конечное значение интервала. Значения конечного массива должны не входить в интервал.
+     * @param initial Массив для программы.
      * @return Сжатый массив без элементов, принадлежащих заданному интервалу. Освободившиеся места в массиве
-     * заполнены нулями. Исходный массив формировался рандомно.
+     * заполнены нулями.
      */
-    public static int[] lessArr(int start, int end) {
-        int[] initial = arrayRandom(50, 100);
+    public static int[] lessArr(int start, int end, int[] initial) {
 
 //        метод, чтобы убрать индексы в промежутке (сделано факультативно, для интереса).
 //        for (int i = 0; i < initial.length; i++) {
@@ -215,19 +216,19 @@ public class Task24 {
     /**
      * Массив, возвращающий сумм цифр массива.
      *
-     * @return Сумма всех цифр массива. Исходный массив формировался рандомно.
+     * @param initial Массив для программы.
+     * @return Сумма всех цифр массива.
      */
-    public static int sumOfNumbers() {
-        int[] initial = arrayRandom(50, 100);
+    public static int sumOfNumbers(int[] initial) {
         int sum = 0;
 
         String arr = "";
-        for (int i = 0; i < initial.length; i++) {
-            arr = arr + initial[i];
+        for (int j : initial) {
+            arr = arr + j;
         }
 
-        String toSplit[] = arr.split("");
-        int sumArr[] = new int[toSplit.length];
+        String[] toSplit = arr.split("");
+        int[] sumArr = new int[toSplit.length];
 
         for (int i = 0; i < toSplit.length; i++) {
             sumArr[i] = Integer.parseInt(toSplit[i]);

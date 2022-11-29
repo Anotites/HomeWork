@@ -1,28 +1,27 @@
 package home_work_2.loops;
 
 public class Task16 {
-    public static void main(String[] args) {
-        int number = 9;
-        multiplicationTable(number);
-    }
 
     /**
      * Метод, строящий таблицу умножения до определенного числа.
      *
      * @param number До какого числа необходимо построить таблицу умножения на 10?
+     * @return Таблица умножения.
      */
-    public static void multiplicationTable(int number) {
-        System.out.println("");
-        System.out.println("\t\t\t" + "Таблица умножения");
-        System.out.println("");
+    public static String multiplicationTable(int number) {
+        String result;
+        result = "\n";
+        result = result + "\t\t\t" + "Таблица умножения";
+        result = result + "\n";
+        result = result + "\n";
         if (number <= 5) {
             for (int i = 1; i <= 10; i++) {
                 for (int j = 2; j <= number; j++) {
                     if (j == number) {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
-                        System.out.println("");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
+                        result = result + "\n";
                     } else {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
                     }
                 }
             }
@@ -30,29 +29,33 @@ public class Task16 {
             for (int i = 1; i <= 10; i++) {
                 for (int j = 2; j <= 5; j++) {
                     if (j == 5) {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
-                        System.out.println("");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
+                        result = result + "\n";
                     } else {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
                     }
                 }
             }
-            System.out.println("");
+            result = result + "\n";
             for (int i = 1; i <= 10; i++) {
                 for (int j = 6; j <= number; j++) {
                     if (j == number) {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
-                        System.out.println("");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
+                        result = result + "\n";
                     } else {
-                        System.out.print(j + " * " + i + " = " + i * j + "\t");
+                        result = result + j + " * " + i + " = " + i * j + "\t";
                     }
                 }
             }
         }
-        System.out.println("");
-        System.out.println("ЭТО");
-        System.out.println("НУЖНО");
-        System.out.println("ЗНАТЬ!");
+        result = result + "\n";
+        result = result + "ЭТО";
+        result = result + "\n";
+        result = result + "НУЖНО";
+        result = result + "\n";
+        result = result + "ЗНАТЬ";
+
+        return result;
     }
 }
 

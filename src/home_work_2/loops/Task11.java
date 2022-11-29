@@ -1,37 +1,37 @@
 package home_work_2.loops;
 
 public class Task11 {
-    public static void main(String[] args) {
-        String number = args[0];
-        loop(number);
-        System.out.println(format(number) + " = " + recursion(number));
-    }
 
     /**
      * Метод, позволяющий перемножить числа от 1 до числа (включительно), введенного через
      * аргумент к исполняемой программе. Используемый цикл - for.
      *
      * @param number Число, до которого будет производиться перемножение.
+     * @return Произведение чисел от 1 до числа (включительно), введенного через аргумент
+     * к исполняемой программе.
      */
-    public static void loop(String number) {
+    public static String loop(String number) {
+        String resultString = "";
         long numberLoop = Long.parseLong(number);
         long result = 1;
         boolean comma = false;
         if (numberLoop <= 0) {
-            System.out.println("Введите положительное число как аргумент.");
+            resultString = "Введите положительное число как аргумент.";
+        } else if (numberLoop >= 21) {
+            resultString = "Введите число меньше 21 (иначе произойдет переполнение).";
         } else {
             for (long i = 1; i <= numberLoop; i++) {
                 if (comma) {
-                    System.out.print(" * ");
+                    resultString = resultString + " * ";
                 } else {
                     comma = true;
                 }
                 result = result * i;
-                System.out.print(i);
+                resultString = resultString + i;
             }
-            System.out.print(" = " + result);
+            resultString = resultString + " = " + result;
         }
-        System.out.println("");
+        return resultString;
     }
 
     /**
@@ -72,6 +72,7 @@ public class Task11 {
             }
             result += i;
         }
+        result = result + " = ";
         return result;
     }
 }

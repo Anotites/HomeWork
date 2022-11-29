@@ -5,14 +5,16 @@ public class WhileOperation implements IArraysOperation {
      * Метод, позволяющий вывести в консоль все числа, введенные через консоль как элементы массива.
      * Элементы будут выведены 1 раз (при помощи цикла: while).
      */
-    public void printElements(int[] arr) {
+    public String printElements(int[] arr) {
+        String result="";
         int i = 0;
-        System.out.println("Print Elements using While");
+        result = result+"Print Elements using While"+"\n";
         while (i <= arr.length - 1) {
-            System.out.print(arr[i] + " ");
+            result=result+arr[i] + " ";
             i++;
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -20,15 +22,17 @@ public class WhileOperation implements IArraysOperation {
      * элементы которого будут введены через консоль.
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: while).
      */
-    public void printEvery2thElement(int[] arr) {
+    public String printEvery2thElement(int[] arr) {
+        String result="";
         int i = 0;
-        System.out.println("Print Every 2th Element using While");
+        result = result+"Print Every 2th Element using While"+"\n";
         while (i < arr.length - 1) {
             i++;
-            System.out.print(arr[i] + " ");
+            result=result+arr[i] + " ";
             i++;
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -36,13 +40,15 @@ public class WhileOperation implements IArraysOperation {
      * Изначально элементы массива будут введены через консоль.
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: while).
      */
-    public void printReversedElements(int[] arr) {
+    public String printReversedElements(int[] arr) {
+        String result="";
         int i = arr.length - 1;
-        System.out.println("Print Reversed Elements using While");
+        result = result+"Print Reversed Elements using While"+"\n";
         while (i >= 0) {
-            System.out.print(arr[i] + " ");
+            result=result+arr[i] + " ";
             i--;
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 }

@@ -2,28 +2,25 @@ package home_work_2.loops;
 
 public class Task12 {
 
-    public static void main(String[] args) {
-        String number = args[0];
-        multiplication(number);
-    }
-
     /**
      * Метод, позволяющий все цифры из числа, введенного через аргумент к исполняемой программе,
      * перемножить между собой и вывести ход вычислений в консоль.
      *
      * @param toInsert Число, цифры которого будут перемножаться.
+     * @return Ход вычислений и результат.
      */
-    public static void multiplication(String toInsert) {
+    public static String multiplication(String toInsert) {
         String lowerString = toInsert.toLowerCase();
+        String result = "";
 
         if (toInsert.contains(".") || toInsert.contains(",")) {
-            System.out.println("Введено не целое число.");
+            result = "Введено не целое число.";
         } else if (lowerString.matches("[a-z]+") || lowerString.matches("[а-я]+")
                 || lowerString.matches("ё")) {
-            System.out.println("Введено не число.");
+            result = "Введено не число.";
         } else {
-            String toSplit[] = toInsert.split("");
-            int numbers[] = new int[toSplit.length];
+            String[] toSplit = toInsert.split("");
+            int[] numbers = new int[toSplit.length];
 
             for (int i = 0; i < toInsert.length(); i++) {
                 numbers[i] = Integer.parseInt(toSplit[i]);
@@ -31,9 +28,10 @@ public class Task12 {
             int forLoop = 1;
             for (int i = 0; i < numbers.length - 1; i++) {
                 forLoop = forLoop * numbers[i];
-                System.out.print(numbers[i] + "*");
+                result = result + numbers[i] + " * ";
             }
-            System.out.print(numbers[numbers.length - 1] + "=" + forLoop * numbers[numbers.length - 1]);
+            result = result + numbers[numbers.length - 1] + " = " + forLoop * numbers[numbers.length - 1];
         }
+        return result;
     }
 }

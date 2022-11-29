@@ -6,14 +6,16 @@ public class DoWhileOperation implements IArraysOperation {
      * Метод, позволяющий вывести в консоль все числа, введенные через консоль как элементы массива.
      * Элементы будут выведены 1 раз (при помощи цикла: do....while).
      */
-    public void printElements(int[] arr) {
+    public String printElements(int[] arr) {
+        String result="";
         int b = 0;
-        System.out.println("Print Elements using Do...while");
+        result = result+"Print Elements using Do...while"+"\n";
         do {
-            System.out.print(arr[b] + " ");
+            result=result+arr[b] + " ";
             b++;
         } while (b <= arr.length - 1);
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -21,15 +23,17 @@ public class DoWhileOperation implements IArraysOperation {
      * элементы которого будут введены через консоль.
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: do....while).
      */
-    public void printEvery2thElement(int[] arr) {
+    public String printEvery2thElement(int[] arr) {
+        String result="";
         int b = 0;
-        System.out.println("Print Every 2th Element using Do...while");
+        result = result+"Print Every 2th Element using Do...while"+"\n";
         do {
             b++;
-            System.out.print(arr[b] + " ");
+            result = result+arr[b] + " ";
             b++;
         } while (b < arr.length - 1);
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -37,13 +41,15 @@ public class DoWhileOperation implements IArraysOperation {
      * Изначально элементы массива будут введены через консоль.
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: do....while).
      */
-    public void printReversedElements(int[] arr) {
+    public String printReversedElements(int[] arr) {
+        String result="";
         int b = arr.length - 1;
-        System.out.println("Print Reversed Elements using Do...while");
+        result = result+"Print Reversed Elements using Do...while"+"\n";
         do {
-            System.out.print(arr[b] + " ");
+            result = result+arr[b] + " ";
             b--;
         } while (b >= 0);
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 }

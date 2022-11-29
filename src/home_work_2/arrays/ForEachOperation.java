@@ -5,12 +5,14 @@ public class ForEachOperation implements IArraysOperation {
      * Метод, позволяющий вывести в консоль все числа, введенные через консоль как элементы массива.
      * Элементы будут выведены 1 раз (при помощи цикла: foreach).
      */
-    public void printElements(int[] arr) {
-        System.out.println("Print Elements using For each");
+    public String printElements(int[] arr) {
+        String result="";
+        result = result+"Print Elements using For each"+"\n";
         for (int element : arr) {
-            System.out.print(element + " ");
+            result=result+element + " ";
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -18,16 +20,18 @@ public class ForEachOperation implements IArraysOperation {
      * элементы которого будут введены через консоль.
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: foreach).
      */
-    public void printEvery2thElement(int[] arr) {
-        System.out.println("Print Every 2th Element using For each");
+    public String printEvery2thElement(int[] arr) {
+        String result="";
+        result = result+"Print Every 2th Element using For each"+"\n";
         int a = 0;
         for (int element : arr) {
             a++;
             if (a % 2 == 0) {
-                System.out.print(element + " ");
+                result=result+element + " ";
             }
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -35,8 +39,9 @@ public class ForEachOperation implements IArraysOperation {
      * Изначально элементы массива будут введены через консоль.
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: foreach).
      */
-    public void printReversedElements(int[] arr) {
-        System.out.println("Print Reversed Elements using For each");
+    public String printReversedElements(int[] arr) {
+        String result="";
+        result = result+"Print Reversed Elements using For each"+"\n";
         int[] reversedArr = new int[arr.length];
         int k = arr.length;
 
@@ -45,8 +50,9 @@ public class ForEachOperation implements IArraysOperation {
             reversedArr[k] = element;
         }
         for (int element : reversedArr) {
-            System.out.print(element + " ");
+            result=result+element + " ";
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 }

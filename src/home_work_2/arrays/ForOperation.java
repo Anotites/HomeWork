@@ -5,12 +5,14 @@ public class ForOperation implements IArraysOperation {
      * Метод, позволяющий вывести в консоль все числа, введенные через консоль как элементы массива.
      * Элементы будут выведены 1 раз (при помощи цикла: for).
      */
-    public void printElements(int[] arr) {
-        System.out.println("Print Elements using For");
+    public String printElements(int[] arr) {
+        String result="";
+        result = result+"Print Elements using For"+"\n";
         for (int j = 0; j < arr.length; j++) {
-            System.out.print(arr[j] + " ");
+            result=result+arr[j] + " ";
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -18,12 +20,14 @@ public class ForOperation implements IArraysOperation {
      * элементы которого будут введены через консоль.
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: for).
      */
-    public void printEvery2thElement(int[] arr) {
-        System.out.println("Print Every 2th Element using For");
+    public String printEvery2thElement(int[] arr) {
+        String result="";
+        result = result+"Print Every 2th Element using For"+"\n";
         for (int j = 1; j < arr.length; j = j + 2) {
-            System.out.print(arr[j] + " ");
+            result=result+arr[j] + " ";
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 
     /**
@@ -31,11 +35,13 @@ public class ForOperation implements IArraysOperation {
      * Изначально элементы массива будут введены через консоль.
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: for).
      */
-    public void printReversedElements(int[] arr) {
-        System.out.println("Print Reversed Elements using For");
+    public String printReversedElements(int[] arr) {
+        String result="";
+        result = result+"Print Reversed Elements using For"+"\n";
         for (int j = arr.length - 1; j >= 0; j--) {
-            System.out.print(arr[j] + " ");
+            result=result+arr[j] + " ";
         }
-        System.out.println("");
+        result = result+"\n";
+        return result.trim();
     }
 }
