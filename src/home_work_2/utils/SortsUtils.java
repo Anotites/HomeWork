@@ -5,8 +5,9 @@ public class SortsUtils {
      * Метод, сортирующий пузырьковым способом массив чисел (от меньшего к большему).
      *
      * @param arr Массив для сортировки.
+     * @return Отсортированный массив.
      */
-    public static void sort(int[] arr) {
+    public static int[] sort(int[] arr) {
         for (int j = 0; j < arr.length - 1; j++) {
             for (int i = arr.length - 1; i > j; i--) {
                 if (arr[i] < arr[i - 1]) {
@@ -16,14 +17,16 @@ public class SortsUtils {
                 }
             }
         }
+        return arr;
     }
 
     /**
      * Метод, сортирующий шейкерным способом массив чисел (от меньшего к большему).
      *
      * @param arr Массив для сортировки.
+     * @return Отсортированный массив.
      */
-    public static void shake(int[] arr) {
+    public static int[] shake(int[] arr) {
         int left = 0;
         int right = arr.length - 1;
         int count = 1;
@@ -48,5 +51,6 @@ public class SortsUtils {
             }
             left++;
         }
+        return arr;
     }
 }
