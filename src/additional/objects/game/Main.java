@@ -5,7 +5,10 @@ public class Main {
 
         Group fightingClub = new Group();
         IEnemy goblin = new Goblin();
+        IEnemy wolf = new Wolf();
 
         System.out.println(fightingClub.battle(goblin));
+        System.out.println(fightingClub.battle(wolf));
+
     }
 }

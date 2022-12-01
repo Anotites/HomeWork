@@ -22,7 +22,7 @@ public class Computer {
      *
      * @return Вывод, включился ли компьютер.
      */
-    public String TurningOnTheComputer() {
+    public String turningOnTheComputer() {
         String result = "Computer did not turn on";
         if (powerSupply.isExist() && hardDrive.isExist() && ram.isExist()
                 && processor.isExist() && videoCard.isExist()) {

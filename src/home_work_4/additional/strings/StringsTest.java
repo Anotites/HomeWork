@@ -1,4 +1,4 @@
-package home_work_4.additional;
+package home_work_4.additional.strings;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

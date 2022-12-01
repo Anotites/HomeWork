@@ -24,7 +24,7 @@ public class Strings {
             int number1 = number / 1000;
             int number2 = number % 1000;
             result = numberFinalForThousands(number1) + " тыс. " + numberFinal(number2);
-        } else if (number < 999999999) {
+        } else if (number <= 999999999) {
             int number1 = number / 1000000;
             int number2 = (number / 1000) % 1000;
             int number3 = number % 1000;
@@ -304,7 +304,7 @@ public class Strings {
             dayName = " неделя ";
         }
 
-        return day + dayName;
+        return (day + dayName).trim();
     }
 
     /**
@@ -402,7 +402,7 @@ public class Strings {
 
             result = hours + ":" + minutes + ":" + seconds + "." + milliseconds;
         }
-        return result;
+        return result.trim();
     }
 }
 

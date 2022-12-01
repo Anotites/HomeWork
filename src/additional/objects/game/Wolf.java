@@ -2,9 +2,9 @@ package additional.objects.game;
 
 public class Wolf implements IEnemy {
 
-    private int enemyDefense = 1;
-    private int enemyLife = 6;
-    private int enemyDamage = 3;
+    private int enemyDefense = 17;
+    private int enemyLife = 1;
+    private int enemyDamage = 1;
 
     @Override
     public int getEnemyDefense() {
