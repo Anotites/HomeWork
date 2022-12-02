@@ -6,12 +6,12 @@ public class ForEachOperation implements IArraysOperation {
      * Элементы будут выведены 1 раз (при помощи цикла: foreach).
      */
     public String printElements(int[] arr) {
-        String result="";
-        result = result+"Print Elements using For each"+"\n";
+        String result = "";
+        result = result + "Print Elements using For each" + "\n";
         for (int element : arr) {
-            result=result+element + " ";
+            result = result + element + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -21,16 +21,16 @@ public class ForEachOperation implements IArraysOperation {
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: foreach).
      */
     public String printEvery2thElement(int[] arr) {
-        String result="";
-        result = result+"Print Every 2th Element using For each"+"\n";
+        String result = "";
+        result = result + "Print Every 2th Element using For each" + "\n";
         int a = 0;
         for (int element : arr) {
             a++;
             if (a % 2 == 0) {
-                result=result+element + " ";
+                result = result + element + " ";
             }
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -40,8 +40,8 @@ public class ForEachOperation implements IArraysOperation {
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: foreach).
      */
     public String printReversedElements(int[] arr) {
-        String result="";
-        result = result+"Print Reversed Elements using For each"+"\n";
+        String result = "";
+        result = result + "Print Reversed Elements using For each" + "\n";
         int[] reversedArr = new int[arr.length];
         int k = arr.length;
 
@@ -50,9 +50,9 @@ public class ForEachOperation implements IArraysOperation {
             reversedArr[k] = element;
         }
         for (int element : reversedArr) {
-            result=result+element + " ";
+            result = result + element + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 }

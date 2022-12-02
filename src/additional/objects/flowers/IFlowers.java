@@ -2,9 +2,9 @@ package additional.objects.flowers;
 
 public interface IFlowers {
 
-    public int getBestBeforeDate();
+    int getBestBeforeDate();
 
-    public int getDate();
+    int getDate();
 
-    public int setDate(int date);
+    int setDate(int date);
 }

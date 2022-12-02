@@ -2,9 +2,9 @@ package additional.objects.flowers;
 
 public class Bouquet {
 
-    IFlowers tulip = new Tulip();
-    IFlowers chrysanthemum = new Chrysanthemum();
-    IFlowers rose = new Rose();
+    private IFlowers tulip = new Tulip();
+    private IFlowers chrysanthemum = new Chrysanthemum();
+    private IFlowers rose = new Rose();
 
     IFlowers[] bouquet = new IFlowers[]{tulip, chrysanthemum, rose};
 

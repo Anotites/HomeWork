@@ -10,20 +10,22 @@ public class Task44Test {
 
     @Test
     public void kbCheck() {
-        Assertions.assertEquals("4556 B равно 4.44921875 KB.", bytesKilobytes(1,4556));
+        Assertions.assertEquals("4556 B равно 4.44921875 KB.", bytesKilobytes(1, 4556));
     }
 
     @Test
     public void bCheck() {
-        Assertions.assertEquals("4 KB равно 4096.0 B.", bytesKilobytes(2,4));
+        Assertions.assertEquals("4 KB равно 4096.0 B.", bytesKilobytes(2, 4));
     }
+
     @Test
     public void otherCheck() {
-        Assertions.assertEquals("Вы выбрали неправильную опцию, попробуйте снова.", bytesKilobytes(3,4));
+        Assertions.assertEquals("Вы выбрали неправильную опцию, попробуйте снова.", bytesKilobytes(3, 4));
     }
+
     @Test
     public void negativeCheck() {
-        Assertions.assertEquals("Вы выбрали неправильную опцию, попробуйте снова.", bytesKilobytes(1,-4));
+        Assertions.assertEquals("Вы выбрали неправильную опцию, попробуйте снова.", bytesKilobytes(1, -4));
     }
 
 }

@@ -11,20 +11,20 @@ public class MainFor23 {
         WhileOperation example3 = new WhileOperation();
         DoWhileOperation example4 = new DoWhileOperation();
 
-        example1.printElements(arr1);
-        example1.printEvery2thElement(arr1);
-        example1.printReversedElements(arr1);
+        System.out.println(example1.printElements(arr1));
+        System.out.println(example1.printEvery2thElement(arr1));
+        System.out.println(example1.printReversedElements(arr1));
 
-        example2.printElements(arr1);
-        example2.printEvery2thElement(arr1);
-        example2.printReversedElements(arr1);
+        System.out.println(example2.printElements(arr1));
+        System.out.println(example2.printEvery2thElement(arr1));
+        System.out.println(example2.printReversedElements(arr1));
 
-        example3.printElements(arr1);
-        example3.printEvery2thElement(arr1);
-        example3.printReversedElements(arr1);
+        System.out.println(example3.printElements(arr1));
+        System.out.println(example3.printEvery2thElement(arr1));
+        System.out.println(example3.printReversedElements(arr1));
 
-        example4.printElements(arr1);
-        example4.printEvery2thElement(arr1);
-        example4.printReversedElements(arr1);
+        System.out.println(example4.printElements(arr1));
+        System.out.println(example4.printEvery2thElement(arr1));
+        System.out.println(example4.printReversedElements(arr1));
     }
 }

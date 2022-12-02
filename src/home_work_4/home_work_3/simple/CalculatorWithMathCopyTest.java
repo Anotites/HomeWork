@@ -11,12 +11,17 @@ public class CalculatorWithMathCopyTest {
 
     @Test
     public void testMain() {
-        Assertions.assertEquals(140.45999999999998, calculatorWithMathCopy.addition(4.1, calculatorWithMathCopy.addition(calculatorWithMathCopy.multiplication(15, 7), calculatorWithMathCopy.pow(calculatorWithMathCopy.division(28, 5), 2))));
+        Assertions.assertEquals(140.45999999999998,
+                calculatorWithMathCopy.addition(4.1,
+                        calculatorWithMathCopy.addition(calculatorWithMathCopy.multiplication(15, 7),
+                                calculatorWithMathCopy.pow(calculatorWithMathCopy.division(28,
+                                        5), 2))));
     }
 
     @Test
     public void calculatorWithMathCopyDivision() {
-        Assertions.assertEquals(4, calculatorWithMathCopy.division(8, 2));
+        Assertions.assertEquals(4,
+                calculatorWithMathCopy.division(8, 2));
     }
 
     @Test
@@ -31,12 +36,14 @@ public class CalculatorWithMathCopyTest {
 
     @Test
     public void calculatorWithMathCopyAddition() {
-        Assertions.assertEquals(10, calculatorWithMathCopy.addition(8, 2));
+        Assertions.assertEquals(10,
+                calculatorWithMathCopy.addition(8, 2));
     }
 
     @Test
     public void calculatorWithMathCopyPow() {
-        Assertions.assertEquals(64, calculatorWithMathCopy.pow(8, 2));
+        Assertions.assertEquals(64,
+                calculatorWithMathCopy.pow(8, 2));
     }
 
     @Test
@@ -51,6 +58,7 @@ public class CalculatorWithMathCopyTest {
 
     @Test
     public void calculatorWithMathCopySquareRoot() {
-        Assertions.assertEquals(3, calculatorWithMathCopy.squareRoot(9));
+        Assertions.assertEquals(3,
+                calculatorWithMathCopy.squareRoot(9));
     }
 }

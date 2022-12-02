@@ -25,7 +25,7 @@ public class MainFor24 {
         System.out.print("Sum of Numbers is " + container7);
         System.out.println("");
 
-        int[] container6 = lessArr(2, 5,array);
+        int[] container6 = lessArr(2, 5, array);
         System.out.print("Elements not from interval are ");
         System.out.print(printArray(container6));
         System.out.println("");
@@ -38,7 +38,7 @@ public class MainFor24 {
      * @return Массив.
      */
     public static String printArray(int[] arr) {
-        String result="";
+        String result = "";
         for (int j : arr) {
             result = result + j + " ";
         }

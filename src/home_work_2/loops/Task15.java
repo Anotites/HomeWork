@@ -11,8 +11,8 @@ public class Task15 {
      * @return Реверс числа.
      */
     public static String printReversedNumber(String naturalNumber) {
-        String toSplit[] = naturalNumber.split("");
-        int arr[] = new int[toSplit.length];
+        String[] toSplit = naturalNumber.split("");
+        int[] arr = new int[toSplit.length];
 
         for (int i = 0; i < naturalNumber.length(); i++) {
             arr[i] = Integer.parseInt(toSplit[i]);
@@ -35,8 +35,8 @@ public class Task15 {
      * @return Количество четных и нечетных цифр числа.
      */
     public static String findEvenAndOddNumbersFromArray(String naturalNumber) {
-        String toSplit[] = naturalNumber.split("");
-        int arr[] = new int[toSplit.length];
+        String[] toSplit = naturalNumber.split("");
+        int[] arr = new int[toSplit.length];
 
         for (int i = 0; i < naturalNumber.length(); i++) {
             arr[i] = Integer.parseInt(toSplit[i]);
@@ -61,8 +61,8 @@ public class Task15 {
      * @return Наибольшая цифра натурального числа.
      */
     public static String printTheBiggestNumberFromArray(String naturalNumber) {
-        String toSplit[] = naturalNumber.split("");
-        int arr[] = new int[toSplit.length];
+        String[] toSplit = naturalNumber.split("");
+        int[] arr = new int[toSplit.length];
 
         for (int i = 0; i < naturalNumber.length(); i++) {
             arr[i] = Integer.parseInt(toSplit[i]);

@@ -16,6 +16,7 @@ public class Task45Test {
     public void rusCapsCheck() {
         Assertions.assertEquals("А - это русская буква.", symbolCheck('А'));
     }
+
     @Test
     public void engCheck() {
         Assertions.assertEquals("j - это английская буква.", symbolCheck('j'));

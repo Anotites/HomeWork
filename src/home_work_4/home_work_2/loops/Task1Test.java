@@ -91,11 +91,13 @@ public class Task1Test {
         Assertions.assertEquals("Число после переполнения 6289078614652622815; " +
                 "число до переполнения -4052555153018976267.", checkStackOverflow(-3));
     }
+
     @Test
     public void task14TestStackOverflow3() {
         Assertions.assertEquals("Число после переполнения -1774566438301073408; " +
                 "число до переполнения 1560496482665168896.", checkStackOverflow(188));
     }
+
     @Test
     public void task14TestStackOverflow4() {
         Assertions.assertEquals("Число после переполнения 3265617043834753317; " +
@@ -115,25 +117,25 @@ public class Task1Test {
 
     @Test
     public void task15TestPrintArrayWithStep1() {
-        Assertions.assertEquals("2 4 6 8 10", printArrayWithStep(10,2,2));
+        Assertions.assertEquals("2 4 6 8 10", printArrayWithStep(10, 2, 2));
     }
 
     @Test
     public void task15TestPrintArrayWithStep2() {
         Assertions.assertEquals("Так как ваш диапазон не делится на равные отрезки с таким шагом, " +
                 "то между последним и предпоследним значением в диапазоне будет значение, " +
-                "не равное шагу: 2 4 6 8 10 11", printArrayWithStep(11,2,2));
+                "не равное шагу: 2 4 6 8 10 11", printArrayWithStep(11, 2, 2));
     }
 
     @Test
     public void task15TestPrintArrayWithStep3() {
         Assertions.assertEquals("Максимальное значение диапазона должно быть" +
-                " больше минимального.", printArrayWithStep(10,12,2));
+                " больше минимального.", printArrayWithStep(10, 12, 2));
     }
 
     @Test
     public void task15TestPrintArrayWithStep4() {
-        Assertions.assertEquals("Шаг должен быть больше 0.", printArrayWithStep(10,2,0));
+        Assertions.assertEquals("Шаг должен быть больше 0.", printArrayWithStep(10, 2, 0));
     }
 
     @Test

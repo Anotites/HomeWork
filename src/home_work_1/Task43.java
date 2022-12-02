@@ -33,7 +33,7 @@ public class Task43 {
         } else {
             result = "1 число без остатка не делится на 2 число. " +
                     "Их частное равно " + (double) number1 / number2 + ". Остаток от деления " +
-                    "равен " + number1 % number2+".";
+                    "равен " + number1 % number2 + ".";
         }
         return result;
     }

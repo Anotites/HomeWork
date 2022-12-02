@@ -7,14 +7,14 @@ public class DoWhileOperation implements IArraysOperation {
      * Элементы будут выведены 1 раз (при помощи цикла: do....while).
      */
     public String printElements(int[] arr) {
-        String result="";
+        String result = "";
         int b = 0;
-        result = result+"Print Elements using Do...while"+"\n";
+        result = result + "Print Elements using Do...while" + "\n";
         do {
-            result=result+arr[b] + " ";
+            result = result + arr[b] + " ";
             b++;
         } while (b <= arr.length - 1);
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -24,15 +24,15 @@ public class DoWhileOperation implements IArraysOperation {
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: do....while).
      */
     public String printEvery2thElement(int[] arr) {
-        String result="";
+        String result = "";
         int b = 0;
-        result = result+"Print Every 2th Element using Do...while"+"\n";
+        result = result + "Print Every 2th Element using Do...while" + "\n";
         do {
             b++;
-            result = result+arr[b] + " ";
+            result = result + arr[b] + " ";
             b++;
         } while (b < arr.length - 1);
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -42,14 +42,14 @@ public class DoWhileOperation implements IArraysOperation {
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: do....while).
      */
     public String printReversedElements(int[] arr) {
-        String result="";
+        String result = "";
         int b = arr.length - 1;
-        result = result+"Print Reversed Elements using Do...while"+"\n";
+        result = result + "Print Reversed Elements using Do...while" + "\n";
         do {
-            result = result+arr[b] + " ";
+            result = result + arr[b] + " ";
             b--;
         } while (b >= 0);
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 }

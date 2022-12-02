@@ -2,10 +2,10 @@ package additional.objects.game;
 
 public class Group {
 
-    IGameCharacters elf = new Elf();
-    IGameCharacters dwarf = new Dwarf();
-    IGameCharacters orc = new Orc();
-    IGameCharacters man = new Man();
+    private IGameCharacters elf = new Elf();
+    private IGameCharacters dwarf = new Dwarf();
+    private IGameCharacters orc = new Orc();
+    private IGameCharacters man = new Man();
 
     IGameCharacters[] group = new IGameCharacters[]{elf, dwarf, orc, man};
 

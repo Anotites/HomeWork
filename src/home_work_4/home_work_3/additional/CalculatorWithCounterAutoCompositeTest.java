@@ -1,6 +1,5 @@
 package home_work_4.home_work_3.additional;
 
-import home_work_3.calcs.additional.CalculatorWithCounterAutoAggregation;
 import home_work_3.calcs.additional.CalculatorWithCounterAutoComposite;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

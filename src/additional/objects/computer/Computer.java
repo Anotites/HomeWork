@@ -2,11 +2,11 @@ package additional.objects.computer;
 
 public class Computer {
 
-    PowerSupply powerSupply;
-    HardDrive hardDrive;
-    RAM ram;
-    Processor processor;
-    VideoCard videoCard;
+    private PowerSupply powerSupply;
+    private HardDrive hardDrive;
+    private RAM ram;
+    private Processor processor;
+    private VideoCard videoCard;
 
     public Computer() {
         this.powerSupply = new PowerSupply();

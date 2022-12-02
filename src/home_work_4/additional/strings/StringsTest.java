@@ -10,14 +10,14 @@ public class StringsTest {
     @Test
     public void testToString11() {
         Assertions.assertEquals("минус девятьсот девяносто девять млн " +
-                "девятьсот девяносто девять тыс. девятьсот девяносто девять",
+                        "девятьсот девяносто девять тыс. девятьсот девяносто девять",
                 toString1(-999999999));
     }
 
     @Test
     public void testToString12() {
         Assertions.assertEquals("девятьсот девяносто девять млн " +
-                "девятьсот девяносто девять тыс. девятьсот девяносто девять",
+                        "девятьсот девяносто девять тыс. девятьсот девяносто девять",
                 toString1(999999999));
     }
 
@@ -100,7 +100,7 @@ public class StringsTest {
     @Test
     public void testToHoursMinuteSecondMillisecond2() {
         Assertions.assertEquals("2 часа 6 минут 29" +
-                " секунд 1 миллисекунда",
+                        " секунд 1 миллисекунда",
                 toHoursMinuteSecondMillisecond(7589001, false));
     }
 

@@ -6,12 +6,12 @@ public class ForOperation implements IArraysOperation {
      * Элементы будут выведены 1 раз (при помощи цикла: for).
      */
     public String printElements(int[] arr) {
-        String result="";
-        result = result+"Print Elements using For"+"\n";
+        String result = "";
+        result = result + "Print Elements using For" + "\n";
         for (int j = 0; j < arr.length; j++) {
-            result=result+arr[j] + " ";
+            result = result + arr[j] + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -21,12 +21,12 @@ public class ForOperation implements IArraysOperation {
      * Каждый второй элемент будет выведен 1 раз (при помощи цикла: for).
      */
     public String printEvery2thElement(int[] arr) {
-        String result="";
-        result = result+"Print Every 2th Element using For"+"\n";
+        String result = "";
+        result = result + "Print Every 2th Element using For" + "\n";
         for (int j = 1; j < arr.length; j = j + 2) {
-            result=result+arr[j] + " ";
+            result = result + arr[j] + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 
@@ -36,12 +36,12 @@ public class ForOperation implements IArraysOperation {
      * Элементы в обратном порядке будут выведены 1 раз (при помощи цикла: for).
      */
     public String printReversedElements(int[] arr) {
-        String result="";
-        result = result+"Print Reversed Elements using For"+"\n";
+        String result = "";
+        result = result + "Print Reversed Elements using For" + "\n";
         for (int j = arr.length - 1; j >= 0; j--) {
-            result=result+arr[j] + " ";
+            result = result + arr[j] + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
         return result.trim();
     }
 }

@@ -91,6 +91,7 @@ public class CalculatorWithCounterAutoChoiceAggregationTest {
     public void calculatorWithCounterAutoAggregationGetCountOperation() {
         Assertions.assertEquals(2, calculatorWithCounterAutoChoiceAggregation1.getCountOperation());
     }
+
     @Test
     public void calculatorWithCounterAutoAggregationDivision1() {
         Assertions.assertEquals(4, calculatorWithCounterAutoChoiceAggregation2.division1(8, 2));
@@ -138,6 +139,7 @@ public class CalculatorWithCounterAutoChoiceAggregationTest {
     public void calculatorWithCounterAutoAggregationGetCountOperation1() {
         Assertions.assertEquals(2, calculatorWithCounterAutoChoiceAggregation2.getCountOperation());
     }
+
     @Test
     public void calculatorWithCounterAutoAggregationDivision2() {
         Assertions.assertEquals(4, calculatorWithCounterAutoChoiceAggregation3.division2(8, 2));

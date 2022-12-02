@@ -13,12 +13,12 @@ public class GroupTest {
     IEnemy wolf = new Wolf();
 
     @Test
-    public void battle1() {
+    public void battleWithGoblin() {
         Assertions.assertEquals("The enemy is defeated.", group.battle(goblin));
     }
 
     @Test
-    public void battle2() {
+    public void battleWithWolf() {
         Assertions.assertEquals("YOU DIED. The enemy has won.", group.battle(wolf));
     }
 }

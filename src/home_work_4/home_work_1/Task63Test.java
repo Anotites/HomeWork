@@ -10,17 +10,17 @@ public class Task63Test {
     ICommunicationPrinter iCommunicationPrinter = new Task63();
 
     @Test
-    public void checkElseIfVasya() {
+    public void checkSwitchVasya() {
         Assertions.assertEquals("Привет!\nЯ так долго тебя ждал!", iCommunicationPrinter.welcome("Вася"));
     }
 
     @Test
-    public void checkElseIfAnastasiya() {
+    public void checkSwitchAnastasiya() {
         Assertions.assertEquals("Я так долго тебя ждал!", iCommunicationPrinter.welcome("Анастасия"));
     }
 
     @Test
-    public void checkElseIfOther() {
+    public void checkSwitchOther() {
         Assertions.assertEquals("Добрый день, а вы кто?", iCommunicationPrinter.welcome("Катя"));
     }
 }
