@@ -1,8 +1,9 @@
 package home_work_5;
 
+import home_work_5.api.Comparator;
 import java.util.Arrays;
 
-public class DataContainer<T> {
+public class DataContainer<T>{
     private T[] data;
 
     private int itemsInArr;
@@ -77,7 +78,7 @@ public class DataContainer<T> {
                 if (item.equals(this.data[i])) {
                     this.data[i] = null;
                     this.itemsInArr--;
-                    copyArr();
+                    copyArrForDeleting();
                     break;
                 }
             }
@@ -97,7 +98,7 @@ public class DataContainer<T> {
                 if (this.data[index].equals(this.data[i])) {
                     this.data[index] = null;
                     this.itemsInArr--;
-                    copyArr();
+                    copyArrForDeleting();
                     break;
                 }
             }
@@ -116,22 +117,30 @@ public class DataContainer<T> {
         return result;
     }
 
-    private void copyArr() {
+    private void copyArrForDeleting() {
         T[] tempArr = (T[]) (new Object[this.itemsInArr]);
-
         int tempItem = 0;
-
         for (int i = 0; i < this.data.length; i++, tempItem++) {
             if (this.data[i] == null) {
                 tempItem--;
                 continue;
             }
-
             tempArr[tempItem] = this.data[i];
         }
-
-        this.data = null;
-        this.data = (T[]) (new Object[tempArr.length]);
         this.data = tempArr;
+    }
+
+    public void sort(Comparator<? super T> comparator) {
+        for (int i = 0; i < this.data.length - 1; ++i) {
+            int minIndex = i;
+            for (int j = i + 1; j < this.data.length; ++j) {
+                if (comparator.compare(this.data[j], this.data[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            T temp = this.data[i];
+            this.data[i] = this.data[minIndex];
+            this.data[minIndex] = temp;
+        }
     }
 }

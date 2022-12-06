@@ -1,9 +1,14 @@
 package home_work_5;
 
+import home_work_5.api.Comparator;
+
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("***новая проверка добавления***");
+
         String[] data1 = new String[]{};
         DataContainer<String> container1 = new DataContainer<>(data1);
         System.out.println("Контейнер пустой: " + container1.isEmpty());
@@ -15,7 +20,7 @@ public class Main {
         System.out.println("Значение элемента с индексом 0: " + container1.get(0));
         System.out.println("Массив: " + Arrays.toString(container1.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка добавления***");
 
         String[] data3 = new String[]{};
         DataContainer<String> container3 = new DataContainer<>(data3);
@@ -28,7 +33,7 @@ public class Main {
         DataContainer<String> container4 = new DataContainer<>(data4);
         System.out.println("Значение элемента с индексом 1: " + container4.get(1));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка добавления***");
 
         String[] data2 = new String[6];
         data2[0] = "1";
@@ -42,7 +47,7 @@ public class Main {
         System.out.println("Количество заполненных индексов в массиве: " + container2.size());
         System.out.println("Значение элемента с индексом 1: " + container2.get(1));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка удаления***");
 
         String[] data5 = {"1", "2", "3", "777"};
         DataContainer<String> container5 = new DataContainer<>(data5);
@@ -50,7 +55,7 @@ public class Main {
         System.out.println("Объект удалили: " + result1);
         System.out.println("Массив: " + Arrays.toString(container5.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка удаления***");
 
         String[] data7 = {"1", "2", "3", "777", null};
         DataContainer<String> container7 = new DataContainer<>(data7);
@@ -58,7 +63,7 @@ public class Main {
         System.out.println("Объект удалили: " + result3);
         System.out.println("Массив: " + Arrays.toString(container7.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка удаления***");
 
         String[] data6 = {"1", "2", "3", "777"};
         DataContainer<String> container6 = new DataContainer<>(data6);
@@ -100,6 +105,33 @@ public class Main {
         boolean result11 = container11.delete(2);
         System.out.println("Объект удалили: " + result11);
         System.out.println("Массив: " + Arrays.toString(container11.getItems()));
+
+        System.out.println("***новая проверка***");
+
+        Integer[] data12 = {3, 1, 3, 777};
+        DataContainer<Integer> container12 = new DataContainer<>(data12);
+        container12.sort(new Comparator<>() {
+            @Override
+            public int compare(Integer item1, Integer item2) {
+                return item1 - item2;
+            }
+        });
+        System.out.println("Массив: " + Arrays.toString(container12.getItems()));
+
+        System.out.println("***новая проверка***");
+
+        String[] data13 = {"i", "hello", "1", "Как домашка"};
+        DataContainer<String> container13 = new DataContainer<>(data13);
+        container13.sort(new Comparator<>() {
+            @Override
+            public int compare(String item1, String item2) {
+                if (item1.length() - item2.length() < 0) {
+                    return -1;
+                } else return 1;
+            }
+        });
+        System.out.println("Массив: " + Arrays.toString(container13.getItems()));
     }
 }
+
 
