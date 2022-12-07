@@ -6,6 +6,8 @@ import home_work_5.api.ComparatorString;
 
 import java.util.Arrays;
 
+import static home_work_5.DataContainer.sort;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -162,6 +164,41 @@ public class Main {
         DataContainer<Integer> container16 = new DataContainer<>(data16);
 
         System.out.println("Массив: " + container16.toString());
+
+        System.out.println("***новая проверка для 12 задания***");
+
+        Integer[] data17 = {3, 1, 3, 777};
+        DataContainer<Integer> container17 = new DataContainer<>(data17);
+        ComparatorInteger comparatorInteger17 = new ComparatorInteger();
+
+        sort(container17,comparatorInteger17);
+        System.out.println("Массив: " + Arrays.toString(container17.getItems()));
+
+        System.out.println("***новая проверка для 12 задания***");
+
+        String[] data18 = {"i", "hello", "1", "Как домашка"};
+        DataContainer<String> container18 = new DataContainer<>(data18);
+        ComparatorString comparatorString18 = new ComparatorString();
+
+        sort(container18,comparatorString18);
+        System.out.println("Массив: " + Arrays.toString(container18.getItems()));
+
+        System.out.println("***новая проверка для 11 задания***");
+
+        //Для строк метод в классе String сортирует по алфавиту.
+        String[] data19 = {"Семенов", "Петров", "Иванов", "Соколов", "Арбузов"};
+        DataContainer<String> container19 = new DataContainer<>(data19);
+
+        sort(container19);
+        System.out.println("Массив: " + Arrays.toString(container19.getItems()));
+
+        System.out.println("***новая проверка для 11 задания***");
+
+        Integer[] data20 = {3, 1, 3, 777};
+        DataContainer<Integer> container20 = new DataContainer<>(data20);
+
+        sort(container20);
+        System.out.println("Массив: " + Arrays.toString(container20.getItems()));
     }
 }
 

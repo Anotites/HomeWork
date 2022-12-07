@@ -4,7 +4,7 @@ import home_work_5.api.Comparator;
 
 import java.util.Arrays;
 
-public class DataContainer<T> {
+public class DataContainer<T>{
     private T[] data;
 
     private int itemsInArr;
@@ -155,5 +155,24 @@ public class DataContainer<T> {
             }
         }
         return Arrays.toString(this.data);
+    }
+
+    public static <T extends Comparable<T>> void sort(DataContainer<? extends T> container) {
+        T[] data = container.getItems();
+        for (int i = 0; i < data.length - 1; ++i) {
+            int minIndex = i;
+            for (int j = i + 1; j < data.length; ++j) {
+                if (data[j].compareTo(data[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            T temp = data[i];
+            data[i] = data[minIndex];
+            data[minIndex] = temp;
+        }
+    }
+
+    public static <T> void sort(DataContainer<? extends T> container, Comparator<? super T> comparator) {
+        container.sort(comparator);
     }
 }
