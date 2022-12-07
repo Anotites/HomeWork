@@ -1,9 +1,10 @@
 package home_work_5;
 
 import home_work_5.api.Comparator;
+
 import java.util.Arrays;
 
-public class DataContainer<T>{
+public class DataContainer<T> {
     private T[] data;
 
     private int itemsInArr;
@@ -142,5 +143,17 @@ public class DataContainer<T>{
             this.data[i] = this.data[minIndex];
             this.data[minIndex] = temp;
         }
+    }
+
+    @Override
+    public String toString() {
+        this.itemsInArr = this.data.length;
+        for (int i = 0; i < this.itemsInArr; i++) {
+            if (this.data[i] == null) {
+                this.itemsInArr--;
+                copyArrForDeleting();
+            }
+        }
+        return Arrays.toString(this.data);
     }
 }

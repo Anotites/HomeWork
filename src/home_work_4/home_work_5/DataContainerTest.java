@@ -224,4 +224,31 @@ public class DataContainerTest {
     public void testDeleteFor731() {
         Assertions.assertTrue(resultFor731);
     }
+
+    Integer[] dataFor101 = {1, 2, 3, 777, 3};
+    DataContainer<Integer> containerFor101 = new DataContainer<>(dataFor101);
+
+    @Test
+    public void testStringFor101() {
+        Assertions.assertEquals("[1, 2, 3, 777, 3]",
+                containerFor101.toString());
+    }
+
+    Integer[] dataFor102 = {1, 2, 3, null};
+    DataContainer<Integer> containerFor102 = new DataContainer<>(dataFor102);
+
+    @Test
+    public void testStringFor102() {
+        Assertions.assertEquals("[1, 2, 3]",
+                containerFor102.toString());
+    }
+
+    Integer[] dataFor103 = {};
+    DataContainer<Integer> containerFor103 = new DataContainer<>(dataFor103);
+
+    @Test
+    public void testStringFor103() {
+        Assertions.assertEquals("[]",
+                containerFor103.toString());
+    }
 }

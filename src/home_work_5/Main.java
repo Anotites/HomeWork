@@ -131,6 +131,27 @@ public class Main {
             }
         });
         System.out.println("Массив: " + Arrays.toString(container13.getItems()));
+
+        System.out.println("***новая проверка***");
+
+        Integer[] data14 = {1, 2, 3, 777, 3};
+        DataContainer<Integer> container14 = new DataContainer<>(data14);
+
+        System.out.println("Массив: " + container14.toString());
+
+        System.out.println("***новая проверка***");
+
+        Integer[] data15 = {1, 2, 3, null};
+        DataContainer<Integer> container15 = new DataContainer<>(data15);
+
+        System.out.println("Массив: " + container15.toString());
+
+        System.out.println("***новая проверка***");
+
+        Integer[] data16 = {};
+        DataContainer<Integer> container16 = new DataContainer<>(data16);
+
+        System.out.println("Массив: " + container16.toString());
     }
 }
 
