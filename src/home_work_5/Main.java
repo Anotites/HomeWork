@@ -1,6 +1,8 @@
 package home_work_5;
 
 import home_work_5.api.Comparator;
+import home_work_5.api.ComparatorInteger;
+import home_work_5.api.ComparatorString;
 
 import java.util.Arrays;
 
@@ -46,6 +48,22 @@ public class Main {
         System.out.println("Контейнер пустой: " + container2.isEmpty());
         System.out.println("Количество заполненных индексов в массиве: " + container2.size());
         System.out.println("Значение элемента с индексом 1: " + container2.get(1));
+
+        System.out.println("***новая проверка удаления по индексу***");
+
+        Integer[] data51 = {1, 2, 3, 777};
+        DataContainer<Integer> container51 = new DataContainer<>(data51);
+        boolean result111 = container51.delete(3);
+        System.out.println("Объект удалили: " + result111);
+        System.out.println("Массив: " + Arrays.toString(container51.getItems()));
+
+        System.out.println("***новая проверка удаления объекта***");
+
+        Integer[] data52 = {1, 2, 3, 777};
+        DataContainer<Integer> container52 = new DataContainer<>(data52);
+        boolean result12 = container52.delete(data52[3]);
+        System.out.println("Объект удалили: " + result12);
+        System.out.println("Массив: " + Arrays.toString(container52.getItems()));
 
         System.out.println("***новая проверка удаления***");
 
@@ -106,30 +124,22 @@ public class Main {
         System.out.println("Объект удалили: " + result11);
         System.out.println("Массив: " + Arrays.toString(container11.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка ComparatorInteger***");
 
         Integer[] data12 = {3, 1, 3, 777};
         DataContainer<Integer> container12 = new DataContainer<>(data12);
-        container12.sort(new Comparator<>() {
-            @Override
-            public int compare(Integer item1, Integer item2) {
-                return item1 - item2;
-            }
-        });
+        ComparatorInteger comparatorInteger = new ComparatorInteger();
+
+        container12.sort(comparatorInteger);
         System.out.println("Массив: " + Arrays.toString(container12.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка comparatorString***");
 
         String[] data13 = {"i", "hello", "1", "Как домашка"};
         DataContainer<String> container13 = new DataContainer<>(data13);
-        container13.sort(new Comparator<>() {
-            @Override
-            public int compare(String item1, String item2) {
-                if (item1.length() - item2.length() < 0) {
-                    return -1;
-                } else return 1;
-            }
-        });
+        ComparatorString comparatorString = new ComparatorString();
+
+        container13.sort(comparatorString);
         System.out.println("Массив: " + Arrays.toString(container13.getItems()));
 
         System.out.println("***новая проверка***");
