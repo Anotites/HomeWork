@@ -1,6 +1,5 @@
 package home_work_5;
 
-import home_work_5.api.Comparator;
 import home_work_5.api.ComparatorInteger;
 import home_work_5.api.ComparatorString;
 
@@ -144,26 +143,26 @@ public class Main {
         container13.sort(comparatorString);
         System.out.println("Массив: " + Arrays.toString(container13.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка toString***");
 
         Integer[] data14 = {1, 2, 3, 777, 3};
         DataContainer<Integer> container14 = new DataContainer<>(data14);
 
-        System.out.println("Массив: " + container14.toString());
+        System.out.println("Массив: " + container14);
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка toString***");
 
         Integer[] data15 = {1, 2, 3, null};
         DataContainer<Integer> container15 = new DataContainer<>(data15);
 
-        System.out.println("Массив: " + container15.toString());
+        System.out.println("Массив: " + container15);
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка toString***");
 
         Integer[] data16 = {};
         DataContainer<Integer> container16 = new DataContainer<>(data16);
 
-        System.out.println("Массив: " + container16.toString());
+        System.out.println("Массив: " + container16);
 
         System.out.println("***новая проверка для 12 задания***");
 
@@ -171,7 +170,7 @@ public class Main {
         DataContainer<Integer> container17 = new DataContainer<>(data17);
         ComparatorInteger comparatorInteger17 = new ComparatorInteger();
 
-        sort(container17,comparatorInteger17);
+        sort(container17, comparatorInteger17);
         System.out.println("Массив: " + Arrays.toString(container17.getItems()));
 
         System.out.println("***новая проверка для 12 задания***");
@@ -180,7 +179,7 @@ public class Main {
         DataContainer<String> container18 = new DataContainer<>(data18);
         ComparatorString comparatorString18 = new ComparatorString();
 
-        sort(container18,comparatorString18);
+        sort(container18, comparatorString18);
         System.out.println("Массив: " + Arrays.toString(container18.getItems()));
 
         System.out.println("***новая проверка для 11 задания***");
@@ -199,6 +198,15 @@ public class Main {
 
         sort(container20);
         System.out.println("Массив: " + Arrays.toString(container20.getItems()));
+
+        System.out.println("***новая проверка для 13 задания***");
+
+        Integer[] data21 = {2, 1, 3, 777};
+        DataContainer<Integer> containers = new DataContainer<>(data21);
+
+        for (Integer container : containers) {
+            System.out.print(container + " ");
+        }
     }
 }
 

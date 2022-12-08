@@ -251,4 +251,12 @@ public class DataContainerTest {
         Assertions.assertEquals("[]",
                 containerFor103.toString());
     }
+
+    Integer[] dataFor13 = {2, 1, 3, 777};
+    DataContainer<Integer> containers = new DataContainer<>(dataFor13);
+
+    @Test
+    public void testIteratorToStringFor12() {
+        Assertions.assertEquals("2 1 3 777", containers.iteratorToString());
+    }
 }

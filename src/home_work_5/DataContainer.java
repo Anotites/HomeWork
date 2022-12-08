@@ -3,8 +3,9 @@ package home_work_5;
 import home_work_5.api.Comparator;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class DataContainer<T>{
+public class DataContainer<T> implements Iterable<T> {
     private T[] data;
 
     private int itemsInArr;
@@ -175,4 +176,31 @@ public class DataContainer<T>{
     public static <T> void sort(DataContainer<? extends T> container, Comparator<? super T> comparator) {
         container.sort(comparator);
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < data.length;
+            }
+
+            @Override
+            public T next() {
+                return data[index++];
+            }
+        };
+    }
+
+    public String iteratorToString() {
+        T[] containers = this.data;
+        StringBuilder iteratorToString = new StringBuilder();
+        for (T container : containers) {
+            iteratorToString.append(" ").append(container);
+        }
+        return iteratorToString.toString().trim();
+    }
 }
+
