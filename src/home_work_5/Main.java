@@ -10,6 +10,26 @@ import static home_work_5.DataContainer.sort;
 public class Main {
     public static void main(String[] args) {
 
+        System.out.println("***Final check***");
+
+        String[] data = new String[]{};
+        DataContainer<String> container = new DataContainer<>(data);
+
+        int index1 = container.add("Привет");
+        int index2 = container.add("Как дела");
+        int index3 = container.add("Работаю");
+        int index4 = container.add("Давай потом");
+        String text1 = container.get(index1);
+        String text2 = container.get(index2);
+        String text3 = container.get(index3);
+        String text4 = container.get(index4);
+        System.out.println(text1); //Привет
+        System.out.println(text2); //Как дела
+        System.out.println(text3); //Работаю
+        System.out.println(text4); //Давай потом
+        container.delete(text1);
+        System.out.println(container.get(index1)); //Как дела
+
         System.out.println("***новая проверка добавления***");
 
         String[] data1 = new String[]{};
@@ -204,8 +224,8 @@ public class Main {
         Integer[] data21 = {2, 1, 3, 777};
         DataContainer<Integer> containers = new DataContainer<>(data21);
 
-        for (Integer container : containers) {
-            System.out.print(container + " ");
+        for (Integer oneContainer : containers) {
+            System.out.print(oneContainer + " ");
         }
     }
 }

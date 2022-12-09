@@ -145,7 +145,7 @@ public class DataContainerTest {
     DataContainer<String> containerFor812 = new DataContainer<>(dataFor812);
 
     @Test
-    public void testDelete812() {
+    public void testDeleteFor812() {
         Assertions.assertFalse(containerFor812.delete(null));
     }
 
