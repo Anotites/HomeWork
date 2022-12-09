@@ -115,7 +115,7 @@ public class Main {
         System.out.println("Объект удалили: " + result2);
         System.out.println("Массив: " + Arrays.toString(container6.getItems()));
 
-        System.out.println("***новая проверка***");
+        System.out.println("***новая проверка* удаления**");
 
         String[] data8 = {"1", "2", "3", "777", "3"};
         DataContainer<String> container8 = new DataContainer<>(data8);

@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class DataContainerTest {
-
     String[] dataFor411 = new String[]{"1", "2", "3", null, null, null};
     DataContainer<String> containerFor411 = new DataContainer<>(dataFor411);
 
