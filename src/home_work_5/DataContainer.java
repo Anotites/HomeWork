@@ -208,18 +208,24 @@ public class DataContainer<T> implements Iterable<T> {
     /**
      * Переопределенный метод toString(), выводит содержимое data без ячеек, в которых хранится null.
      *
-     * @return Массив без ячеек, в которых хранится null.
+     * @return Строка с массивом. Не выводит null.
      */
     @Override
     public String toString() {
+        StringBuilder newString = new StringBuilder("[");
+        boolean comma = false;
         this.itemsInArr = this.data.length;
         for (int i = 0; i < this.itemsInArr; i++) {
-            if (this.data[i] == null) {
-                this.itemsInArr--;
-                copyArrForDeleting();
+            if (this.data[i] != null) {
+                if (comma) {
+                    newString.append(", ");
+                }
+                newString.append(this.data[i]);
+                comma = true;
             }
         }
-        return Arrays.toString(this.data);
+        newString.append("]");
+        return newString.toString();
     }
 
     /**
