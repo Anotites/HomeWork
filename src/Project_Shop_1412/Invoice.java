@@ -10,8 +10,8 @@ public class Invoice {
     }
 
     @Override
-    public String toString(){
-        return  shoppingCart+"\n"+"Итого надо заплатить: "+sum;
+    public String toString() {
+        return shoppingCart + "\n" + "Итого надо заплатить: " + sum;
     }
 
 }

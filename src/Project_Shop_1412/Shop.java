@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
-public class Shop implements Iterable{
+public class Shop implements Iterable {
     ArrayList<Product> listOfProduct;
 
     public Shop(ArrayList<Product> listOfProduct) {
@@ -21,20 +21,20 @@ public class Shop implements Iterable{
     }
 
     public ShoppingCart returnShoppingCart() {
-        return new ShoppingCart(new ArrayList<ProductInShoppingCart>());
+        return new ShoppingCart(new ArrayList<>());
     }
 
     public Invoice returnInvoice(ShoppingCart newShoppingCart) {
         double sum = 0;
         for (ProductInShoppingCart i : newShoppingCart.shoppingCart) {
-            sum=sum+i.product.price * i.quantity;
+            sum = sum + i.product.price * i.quantity;
         }
-        String result="";
+        StringBuilder result = new StringBuilder();
 
         for (ProductInShoppingCart i : newShoppingCart.shoppingCart) {
-            result=result+i.product.toString()+", Количество - "+i.quantity+", Сумма - "+i.product.price * i.quantity+"\n";
+            result.append(i.product.toString()).append(", Количество - ").append(i.quantity).append(", Сумма - ").append(i.product.price * i.quantity).append("\n");
         }
-        return new Invoice(result, sum);
+        return new Invoice(result.toString(), sum);
     }
 
     @Override
