@@ -1,4 +1,4 @@
-package Project_Shop_1412;
+package additional.project_Shop_1412;
 
 public class CommonProduct extends Product {
     public CommonProduct(String name, double price) {
