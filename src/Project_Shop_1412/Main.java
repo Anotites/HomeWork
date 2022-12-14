@@ -1,14 +1,14 @@
-package task2;
+package Project_Shop_1412;
 
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Product milk = new CommonProduct("Молоко", 5.0);
+        Product milk = new CommonProduct("Молоко", 2.35);
         System.out.println(milk);
-        Product egg = new PromotionalProduct("Яйцо",6.0,10);
+        Product egg = new PromotionalProduct("Яйцо",8563,31);
         System.out.println(egg);
-        Product bread = new DiscountedProduct("Хлеб",12.0,10,"мятый");
+        Product bread = new DiscountedProduct("Хлеб",10,50,"мятый");
         System.out.println(bread);
 
         ArrayList<Product> listOfProduct = new  ArrayList<>();
@@ -22,9 +22,9 @@ public class Main {
         System.out.println(shop.returnListOfProduct());
 
         ShoppingCart shoppingCart = new ShoppingCart(newShoppingCart);
-        shoppingCart.add(milk,2);
-        shoppingCart.add(egg,3);
-        shoppingCart.add(bread,4);
+        shoppingCart.add(milk,4);
+        shoppingCart.add(egg,1);
+        shoppingCart.add(bread,15);
 
         System.out.println(shop.returnInvoice(shoppingCart));
 

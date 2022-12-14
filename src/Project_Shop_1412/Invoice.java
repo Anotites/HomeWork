@@ -1,7 +1,4 @@
-package task2;
-
-import java.util.ArrayList;
-import java.util.List;
+package Project_Shop_1412;
 
 public class Invoice {
     String shoppingCart;

@@ -1,4 +1,4 @@
-package task2;
+package Project_Shop_1412;
 
 public class PromotionalProduct extends CommonProduct {
     public String name;
