@@ -1,7 +1,5 @@
 package additional.collections;
 
-import home_work_5.api.Comparator;
-
 import java.util.*;
 import java.util.function.Consumer;
 
@@ -18,6 +16,10 @@ public class DataContainer implements Iterable<Person>{
             this.data.add(new Person());
             check++;
         }
+    }
+
+    public void delete() {
+        this.data.clear();
     }
 
 //    public void mySort(Comparator<? super Person> comparator) {

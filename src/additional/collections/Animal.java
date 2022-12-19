@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static additional.collections.Generator.randomNickForAnimal;
 
-public class Animal {
+public class Animal extends Alive{
     private int age ;
     private String nick;
 
@@ -25,6 +25,14 @@ public class Animal {
 
     public String getNick() {
         return nick;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     @Override

@@ -21,7 +21,7 @@ public class Generator {
         return result.toString();
     }
 
-    public static String randomDiffRusForNameAndNick() {
+    public static String randomDiffRusForNameAndPersonNick() {
         String symbols = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
         Random random = new Random();
         int length = random.nextInt(1,11);
@@ -32,7 +32,7 @@ public class Generator {
         return result.toString();
     }
 
-    public static String randomDiffForPersonNick() {
+    public static String randomDiffEngForPersonNick() {
         String symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Random random = new Random();
         int length = random.nextInt(1,11);

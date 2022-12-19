@@ -2,14 +2,14 @@ package additional.collections;
 
 import static additional.collections.Generator.*;
 
-public class Person {
+public class Person extends Alive{
 
     private String nick;
     private String password;
     private String name;
 
     public Person() {
-        this.nick = randomDiffForPersonNick();
+        this.nick = randomDiffEngForPersonNick();
         this.password = randomDiffFrom5To10ForPassword();
         this.name = randomName();
     }
@@ -30,6 +30,18 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
