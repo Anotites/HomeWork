@@ -2,14 +2,14 @@ package additional.collections;
 
 import static additional.collections.Generator.*;
 
-public class Person extends Alive{
+public class Person extends Alive {
 
     private String nick;
     private String password;
     private String name;
 
     public Person() {
-        this.nick = randomDiffEngForPersonNick();
+        this.nick = randomPersonNickFromFile();
         this.password = randomDiffFrom5To10ForPassword();
         this.name = randomName();
     }

@@ -19,11 +19,11 @@ public class Main {
 
         System.out.println("Список людей до сортировки: " + people);
 
-        people.sort(new ComparatorPasswordLength());
+        people.sort(new ComparatorPasswordLengthClassic());
 
         System.out.println("Список людей после сортировки по длине пароля: " + people);
 
-        people.sort(new ComparatorPasswordLengthAndNick());
+        people.sort(new ComparatorPasswordLengthAndNickClassic());
 
         System.out.println("Список людей после сортировки по длине пароля и псевдониму: " + people);
 

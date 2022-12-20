@@ -1,13 +1,17 @@
 package additional.collections;
 
 import java.util.*;
+import java.util.Comparator;
 
 import static additional.collections.Generator.randomDiffFrom5To10ForPassword;
 
 public class NewMain {
     public static void main(String[] args) {
 
-        int numbers = 5;
+        int numbers = 100_000;
+
+        // Все System.out.println с выводом всех объектов пока оставила как комменты, чтобы не выводить,
+        // 100_000 позиций для каждого.
 
         System.out.println("*******************check LinkedList*******************");
 
@@ -15,16 +19,18 @@ public class NewMain {
         DataContainer peopleLinkedList = new DataContainer(dataLinkedList);
 
         long dataLinkedListTimeBefore = System.currentTimeMillis();
-        peopleLinkedList.fill(numbers);
+        peopleLinkedList.myFill(numbers);
         long dataLinkedListTimeAfter = System.currentTimeMillis();
         System.out.println("Операция: Заполнение коллекции. Заняло " +
                 (dataLinkedListTimeAfter - dataLinkedListTimeBefore) + " мс.");
 
-//        System.out.println("До сортировки LinkedList: "+peopleLiknedList);
-        dataLinkedList.sort(new ComparatorPasswordLength());
-//        System.out.println("После сортировки по длине пароля LinkedList: "+dataLinkedList);
-        dataLinkedList.sort(new ComparatorPasswordLengthAndNick());
-//        System.out.println("После сортировки по длине пароля и ника LinkedList: "+dataLinkedList);
+//        System.out.println("До сортировки LinkedList: " + peopleLinkedList);
+        dataLinkedList.sort(new ComparatorPasswordLengthClassic());
+//        System.out.println("После сортировки по длине пароля LinkedList: " + peopleLinkedList.mySort(new ComparatorPasswordLength()));
+//        System.out.println("После сортировки по длине пароля LinkedList: " + peopleLinkedList);
+        dataLinkedList.sort(new ComparatorPasswordLengthAndNickClassic());
+//        System.out.println("После сортировки по длине пароля и ника LinkedList: " + peopleLinkedList.mySort(new ComparatorPasswordLengthAndNick()));
+//        System.out.println("После сортировки по длине пароля и ника LinkedList: " + peopleLinkedList);
 
         long dataLinkedListIteratorTimeBefore = System.currentTimeMillis();
         for (Person person : dataLinkedList) {
@@ -50,21 +56,25 @@ public class NewMain {
         System.out.println("Операция: Удаление коллекции. Заняло " +
                 (dataLinkedListDeleteTimeAfter - dataLinkedListDeleteTimeBefore) + " мс.");
 
+        System.out.println("После удаления коллекции LinkedList: " + peopleLinkedList);
+
         System.out.println("*******************check ArrayList*******************");
 
         ArrayList<Person> dataArrayList = new ArrayList<>();
         DataContainer peopleArrayList = new DataContainer(dataArrayList);
 
         long dataArrayListTimeBefore = System.currentTimeMillis();
-        peopleArrayList.fill(numbers);
+        peopleArrayList.myFill(numbers);
         long dataArrayListTimeAfter = System.currentTimeMillis();
         System.out.println("Операция: Заполнение коллекции. Заняло " +
                 (dataArrayListTimeAfter - dataArrayListTimeBefore) + " мс.");
 
 //        System.out.println("До сортировки ArrayList: " + peopleArrayList);
-        dataArrayList.sort(new ComparatorPasswordLength());
+        dataArrayList.sort(new ComparatorPasswordLengthClassic());
+//        System.out.println("После сортировки по длине пароля ArrayList: " + peopleArrayList.mySort(new ComparatorPasswordLength()));
 //        System.out.println("После сортировки по длине пароля ArrayList: " + peopleArrayList);
-        dataArrayList.sort(new ComparatorPasswordLengthAndNick());
+        dataArrayList.sort(new ComparatorPasswordLengthAndNickClassic());
+//        System.out.println("После сортировки по длине пароля и ника ArrayList: " + peopleArrayList.mySort(new ComparatorPasswordLengthAndNick()));
 //        System.out.println("После сортировки по длине пароля и ника ArrayList: " + peopleArrayList);
 
         long dataArrayListIteratorTimeBefore = System.currentTimeMillis();
@@ -91,13 +101,15 @@ public class NewMain {
         System.out.println("Операция: Удаление коллекции. Заняло " +
                 (dataArrayListDeleteTimeAfter - dataArrayListDeleteTimeBefore) + " мс.");
 
+        System.out.println("После удаления коллекции ArrayList: " + peopleArrayList);
+
         System.out.println("*******************check HashSet*******************");
 
         Set<Person> dataHashSet = new HashSet<>();
         DataContainer peopleHashSet = new DataContainer(dataHashSet);
 
         long dataHashSetTimeBefore = System.currentTimeMillis();
-        peopleHashSet.fill(numbers);
+        peopleHashSet.myFill(numbers);
         long dataHashSetTimeAfter = System.currentTimeMillis();
         System.out.println("Операция: Заполнение коллекции. Заняло " +
                 (dataHashSetTimeAfter - dataHashSetTimeBefore) + " мс.");
@@ -106,10 +118,12 @@ public class NewMain {
         DataContainer sortedPeopleHashSet = new DataContainer(sortedDataHashSet);
 
 //        System.out.println("До сортировки HashSet: " + peopleHashSet);
-        sortedDataHashSet.sort(new ComparatorPasswordLength());
+        sortedDataHashSet.sort(new ComparatorPasswordLengthClassic());
 //        System.out.println("После сортировки по длине пароля HashSet: " + sortedPeopleHashSet);
-        sortedDataHashSet.sort(new ComparatorPasswordLengthAndNick());
+//        System.out.println("После сортировки по длине пароля HashSet: " + sortedPeopleHashSet.mySort(new ComparatorPasswordLength()));
+        sortedDataHashSet.sort(new ComparatorPasswordLengthAndNickClassic());
 //        System.out.println("После сортировки по длине пароля и ника HashSet: " + sortedPeopleHashSet);
+//        System.out.println("После сортировки по длине пароля и ника HashSet: " + sortedPeopleHashSet.mySort(new ComparatorPasswordLengthAndNick()));
 
         long dataHashSetIteratorTimeBefore = System.currentTimeMillis();
         for (Person person : dataHashSet) {
@@ -135,21 +149,22 @@ public class NewMain {
         System.out.println("Операция: Удаление коллекции. Заняло " +
                 (dataHashSetDeleteTimeAfter - dataHashSetDeleteTimeBefore) + " мс.");
 
+        System.out.println("После удаления коллекции HashSet: " + peopleHashSet);
+
         System.out.println("*******************check TreeSet*******************");
 
-        Comparator<Person> comparator = new ComparatorPasswordLengthAndNick();
+        Comparator<Person> comparator = new ComparatorPasswordLengthAndNickClassic();
         Set<Person> dataTreeSet = new TreeSet<>(comparator);
         DataContainer peopleTreeSet = new DataContainer(dataTreeSet);
         List<Person> sortedDataTreeSet = new ArrayList<>(dataTreeSet);
 
         long dataTreeSetTimeBefore = System.currentTimeMillis();
-        peopleTreeSet.fill(numbers);
+        peopleTreeSet.myFill(numbers);
         long dataTreeSetTimeAfter = System.currentTimeMillis();
         System.out.println("Операция: Заполнение коллекции. Заняло " +
                 (dataTreeSetTimeAfter - dataTreeSetTimeBefore) + " мс.");
 
 //        System.out.println("После сортировки по длине пароля и ника TreeSet: " + peopleTreeSet);
-
 
         long dataTreeSetIteratorTimeBefore = System.currentTimeMillis();
         for (Person person : dataTreeSet) {
@@ -174,5 +189,7 @@ public class NewMain {
         long dataTreeSetDeleteTimeAfter = System.currentTimeMillis();
         System.out.println("Операция: Удаление коллекции. Заняло " +
                 (dataTreeSetDeleteTimeAfter - dataTreeSetDeleteTimeBefore) + " мс.");
+
+        System.out.println("После удаления коллекции TreeSet: " + peopleTreeSet);
     }
 }

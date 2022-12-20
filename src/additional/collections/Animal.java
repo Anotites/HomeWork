@@ -4,13 +4,13 @@ import java.util.Random;
 
 import static additional.collections.Generator.randomNickForAnimal;
 
-public class Animal extends Alive{
-    private int age ;
+public class Animal extends Alive {
+    private int age;
     private String nick;
 
     public Animal() {
         Random random = new Random();
-        this.age = random.nextInt(1,16);
+        this.age = random.nextInt(1, 16);
         this.nick = randomNickForAnimal();
     }
 
