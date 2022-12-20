@@ -192,4 +192,5 @@ public class NewMain {
 
         System.out.println("После удаления коллекции TreeSet: " + peopleTreeSet);
     }
+
 }

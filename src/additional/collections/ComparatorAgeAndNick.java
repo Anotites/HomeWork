@@ -20,4 +20,5 @@ public class ComparatorAgeAndNick implements Comparator<Animal> {
             return o1.getNick().compareTo(o2.getNick());
         }
     }
+
 }

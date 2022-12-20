@@ -42,4 +42,5 @@ public class Animal extends Alive {
                 ", nick='" + nick + '\'' +
                 '}';
     }
+
 }

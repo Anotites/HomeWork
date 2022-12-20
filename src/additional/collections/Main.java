@@ -44,4 +44,5 @@ public class Main {
 
         System.out.println("Список животных после сортировки по возрасту и кличке: " + animals);
     }
+
 }

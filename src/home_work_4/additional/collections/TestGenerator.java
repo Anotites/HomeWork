@@ -84,4 +84,5 @@ public class TestGenerator {
     public void testMakeArray() {
         Assertions.assertEquals(2, makeArray("1 2").length);
     }
+
 }

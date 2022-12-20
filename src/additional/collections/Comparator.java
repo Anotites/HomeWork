@@ -9,4 +9,5 @@ public interface Comparator<Person> {
      * @return Реализация сравнения.
      */
     int compare(Person item1, Person item2);
+
 }

@@ -52,4 +52,5 @@ public class Person extends Alive {
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }
