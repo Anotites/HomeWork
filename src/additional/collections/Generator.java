@@ -138,16 +138,25 @@ public class Generator {
      */
     public static String[] dataFromFiles(String name) {
         StringBuilder result = new StringBuilder();
+        Reader inputStream = null;
         try {
-            Reader inputStream = new FileReader(name);
+            inputStream = new FileReader(name);
             int inputRead;
             while ((inputRead = inputStream.read()) != -1) {
                 result.append((char) inputRead);
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (IOException e1) {
+            System.out.println(e1.getMessage());
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    System.out.println(e2.getMessage());
+                }
+            }
         }
         return makeArray(String.valueOf(result));
     }
