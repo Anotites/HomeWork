@@ -15,7 +15,7 @@ public class WarAndPeace implements Iterable<String>{
         this.resultSet =result;
     }
 
-    private static String readWarAndPeace(String nameOfFile) {
+    public static String readWarAndPeace(String nameOfFile) {
         String text = "";
         try (BufferedReader reader
                      = new BufferedReader(
@@ -41,8 +41,12 @@ public class WarAndPeace implements Iterable<String>{
         String newString1 = toInsert.replaceAll("[:\\.)(,!\";<]"," ");
         String newString2 = newString1.replaceAll("\\?\\s"," ");
         String newString3 = newString2.replaceAll("\\?\\r"," ");
+        String newString4 = newString3.replaceAll("\\?\\n"," ");
+        String newString5 = newString4.replaceAll(" -"," ");
+        String newString6 = newString5.replaceAll("--"," ");
+        String newString7 = newString6.replaceAll("\\?","");
 
-        String[] newStrings = newString3.split("\\s");
+        String[] newStrings = newString7.split("\\s");
         String[] resultString = new String[newStrings.length];
         System.arraycopy(newStrings, 0, resultString, 0, newStrings.length);
         return resultString;
@@ -53,6 +57,13 @@ public class WarAndPeace implements Iterable<String>{
         this.resultSet = new HashSet<>(Arrays.asList(resultString));
         resultSet.removeAll(Arrays.asList("", null,"-","--"));
         return resultSet.size();
+    }
+
+    public int makeListCollectionFromText(String nameOfFile) {
+        String[] resultString = makeArrayFromText(nameOfFile);
+        ArrayList<String> resultList = new ArrayList<>(Arrays.asList(resultString));
+        resultList.removeAll(Arrays.asList("", null,"-","--"));
+        return resultList.size();
     }
 
     public String makeMapCollectionFromText(String nameOfFile, int top) {
