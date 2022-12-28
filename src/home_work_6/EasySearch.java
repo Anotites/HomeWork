@@ -7,8 +7,7 @@ import static home_work_6.WarAndPeace.readWarAndPeace;
 public class EasySearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {
-        String toInsert = readWarAndPeace(text);
-        String toInsert1 = toInsert.replace(",", "_");
+        String toInsert1 = text.replace(",", "_");
         String toInsert2 = toInsert1.replace(".", "_");
         String toInsert3 = toInsert2.replace("!", "_");
         String toInsert4 = toInsert3.replace("--", "_");

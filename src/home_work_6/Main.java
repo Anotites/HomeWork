@@ -1,6 +1,11 @@
 package home_work_6;
 
+import home_work_6.api.ISearchEngine;
+import home_work_6.api.SearchEnginePunctuationNormalizer;
+
 import java.util.HashSet;
+
+import static home_work_6.WarAndPeace.readWarAndPeace;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,18 +22,26 @@ public class Main {
         String resultMap = warAndPeace.makeMapCollectionFromText(name, 5);
         System.out.println("Топ слов: " + resultMap);
 
-        String wordSearch = "он";
+        String wordSearch = "мир";
+        String text = readWarAndPeace(name);
 
-        EasySearch easySearch = new EasySearch();
-        long resultEasySearch = easySearch.search(name, wordSearch);
+        ISearchEngine easySearch = new EasySearch();
+        long resultEasySearch = easySearch.search(text, wordSearch);
 
         System.out.println("Слово " + wordSearch + " встречается в \""
                 + name + "\" " + resultEasySearch + " раз.");
 
-        RegExSearch regExSearch = new RegExSearch();
-        long resultRegExSearch = regExSearch.search(name, wordSearch);
+        ISearchEngine regExSearch = new RegExSearch();
+        long resultRegExSearch = regExSearch.search(text, wordSearch);
 
         System.out.println("Слово " + wordSearch + " встречается в \"" + name
                 + "\" " + resultRegExSearch + " раз.");
+
+        ISearchEngine searchEnginePunctuationNormalizer = new SearchEnginePunctuationNormalizer(regExSearch);
+        long resultPunctuationNormalizer = searchEnginePunctuationNormalizer.search(text, wordSearch);
+
+        System.out.println("Слово " + wordSearch + " встречается в \"" + name
+                + "\" " + resultPunctuationNormalizer + " раз.");
+
     }
 }

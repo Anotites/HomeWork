@@ -1,5 +1,7 @@
 package home_work_6;
 
+import home_work_6.api.ComparatorAlphabet;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -38,15 +40,10 @@ public class WarAndPeace implements Iterable<String>{
 
     public String[] makeArrayFromText(String nameOfFile) {
         String toInsert = readWarAndPeace(nameOfFile);
-        String newString1 = toInsert.replaceAll("[:\\.)(,!\";<]"," ");
-        String newString2 = newString1.replaceAll("\\?\\s"," ");
-        String newString3 = newString2.replaceAll("\\?\\r"," ");
-        String newString4 = newString3.replaceAll("\\?\\n"," ");
-        String newString5 = newString4.replaceAll(" -"," ");
-        String newString6 = newString5.replaceAll("--"," ");
-        String newString7 = newString6.replaceAll("\\?","");
+        String newString1 = toInsert.replaceAll("[:\\.)(,!\";\\r<\\n]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s)|(-\\s)"," ");
+        String newString2 = newString1.replaceAll("\\?","");
 
-        String[] newStrings = newString7.split("\\s");
+        String[] newStrings = newString2.split("\\s");
         String[] resultString = new String[newStrings.length];
         System.arraycopy(newStrings, 0, resultString, 0, newStrings.length);
         return resultString;
@@ -61,8 +58,8 @@ public class WarAndPeace implements Iterable<String>{
 
     public int makeListCollectionFromText(String nameOfFile) {
         String[] resultString = makeArrayFromText(nameOfFile);
-        ArrayList<String> resultList = new ArrayList<>(Arrays.asList(resultString));
-        resultList.removeAll(Arrays.asList("", null,"-","--"));
+        List<String> resultList = new ArrayList<>(Arrays.asList(resultString));
+        resultList.removeAll(Arrays.asList("", null, "-", "--"));
         return resultList.size();
     }
 

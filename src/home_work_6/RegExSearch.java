@@ -10,9 +10,10 @@ import static home_work_6.WarAndPeace.readWarAndPeace;
 public class RegExSearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {
-        String toInsert = readWarAndPeace(text);
-        Pattern pattern = Pattern.compile("[:\\.)(,!\";<\\s]"+word+"[:\\.)(,!\";<\\s]");
-        Matcher matcher = pattern.matcher(toInsert);
+        String newString = text.replaceAll("\\?", "");
+
+        Pattern pattern = Pattern.compile("[:\\.)(,!\";\\r<\\n;\\s\\?]" + word + "[:\\.)(,!\";\\r<\\n;\\s\\?]");
+        Matcher matcher = pattern.matcher(newString);
 
         long quantity = 0;
         while (matcher.find()) {
