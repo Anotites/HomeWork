@@ -15,7 +15,7 @@ public class NewMain {
 
         System.out.println("*******************check LinkedList*******************");
 
-        LinkedList<Person> dataLinkedList = new LinkedList<>();
+        List<Person> dataLinkedList = new LinkedList<>();
         DataContainer peopleLinkedList = new DataContainer(dataLinkedList);
 
         long dataLinkedListTimeBefore = System.currentTimeMillis();
@@ -60,7 +60,7 @@ public class NewMain {
 
         System.out.println("*******************check ArrayList*******************");
 
-        ArrayList<Person> dataArrayList = new ArrayList<>();
+        List<Person> dataArrayList = new ArrayList<>();
         DataContainer peopleArrayList = new DataContainer(dataArrayList);
 
         long dataArrayListTimeBefore = System.currentTimeMillis();
