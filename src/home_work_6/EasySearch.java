@@ -2,8 +2,6 @@ package home_work_6;
 
 import home_work_6.api.ISearchEngine;
 
-import static home_work_6.WarAndPeace.readWarAndPeace;
-
 public class EasySearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {

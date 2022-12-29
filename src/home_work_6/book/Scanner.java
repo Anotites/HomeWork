@@ -1,4 +1,4 @@
-package additional.files;
+package home_work_6.book;
 
 public class Scanner {
     /**
@@ -8,7 +8,7 @@ public class Scanner {
      */
     public static String scanner() {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
-        System.out.println("Введите директорию");
+        System.out.println("Введите ваш выбор:");
         return scanner.next();
     }
 }

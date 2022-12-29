@@ -6,12 +6,13 @@ import home_work_6.api.SearchEnginePunctuationNormalizer;
 
 import java.util.HashSet;
 
-import static home_work_6.WarAndPeace.readWarAndPeace;
+import static home_work_6.WarAndPeace.readBook;
 
 public class Main {
     public static void main(String[] args) {
         String name = "src/home_work_6/WarAndPeace_Book.txt";
         WarAndPeace warAndPeace = new WarAndPeace(new HashSet<>());
+        warAndPeace.makeSetCollectionFromText(name);
         int resultSet = warAndPeace.countSetCollectionFromText(name);
         int resultList = warAndPeace.countListCollectionFromText(name);
 
@@ -27,7 +28,7 @@ public class Main {
         String wordSearch2 = "и";
         String wordSearch3 = "мир";
 
-        String text = readWarAndPeace(name);
+        String text = readBook(name);
 
         ISearchEngine easySearch = new EasySearch();
         long resultEasySearch1 = easySearch.search(text, wordSearch1);

@@ -50,7 +50,7 @@ public class ISearchEngineTest {
     String word22 = "Привет";
     String word23 = "как";
     String text2 = "Ну привет, как дела! привет,какдела! привет;какдела! " +
-            "как дела!.Что делаешь? Привет-привет Привет -привет.";
+            "как дела!.Что делаешь? Привет-привет Привет ,привет.";
 
     @Test
     public void test211() {
@@ -199,7 +199,7 @@ public class ISearchEngineTest {
     }
 
     String word5 = "бабушка";
-    String text5 = "бабушку бабушка Бабушка бабушке бабушку";
+    String text5 = "бабушку бабушка бабушке Бабушка бабушку";
 
     @Test
     public void test51() {

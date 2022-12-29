@@ -1,19 +1,14 @@
 package home_work_6.book;
 
-public class Something {
-    public boolean isFolder;
-    public boolean isTxt;
+public class Book {
+    public String name;
 
-    public Something(boolean isFolder, boolean isTxt) {
-        this.isFolder = isFolder;
-        this.isTxt = isTxt;
+    public Book(String name) {
+        this.name = name;
     }
 
-    public boolean isFolder() {
-        return isFolder;
+    public String getName() {
+        return name;
     }
 
-    public boolean isTxt() {
-        return isTxt;
-    }
 }

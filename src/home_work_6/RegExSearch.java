@@ -5,11 +5,15 @@ import home_work_6.api.ISearchEngine;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class RegExSearch implements ISearchEngine {
+
+    public static final String stringCanBeSeparatedBy = "[<>=\"#\\s$;\\[%&':)(*+,!./@\\]^_`{|}~]";
+
     @Override
     public long search(String text, String word) {
 
-        Pattern pattern = Pattern.compile("[:\\.)(,!\";\\r<\\n\\s\\t\\?]"+ word + "[:\\.)(,!\";\\r<\\n\\s\\t\\?]");
+        Pattern pattern = Pattern.compile(stringCanBeSeparatedBy + word + stringCanBeSeparatedBy);
         Matcher matcher = pattern.matcher(text.replaceAll("\\?", ""));
 
         long quantity = 0;
@@ -19,3 +23,4 @@ public class RegExSearch implements ISearchEngine {
         return quantity;
     }
 }
+

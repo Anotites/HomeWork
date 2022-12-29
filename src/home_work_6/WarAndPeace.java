@@ -12,12 +12,14 @@ import java.util.function.Consumer;
 public class WarAndPeace implements Iterable<String>{
 
     Set<String> resultSet;
+    public static final String stringCanBeSeparatedBy =
+            "([<>=\"#\\[$;%&':)(*+,!./@\\]^_`{|}~])|(\\?[^a-zA-ZА-Яа-я0-9])|(-\\s)|(\\s-)|(\\s)|(--)";
 
     WarAndPeace(Set<String> resultSet) {
         this.resultSet =resultSet;
     }
 
-    public static String readWarAndPeace(String nameOfFile) {
+    public static String readBook(String nameOfFile) {
         String text = "";
         try (BufferedReader reader
                      = new BufferedReader(
@@ -38,20 +40,19 @@ public class WarAndPeace implements Iterable<String>{
         return text;
     }
 
-    public String[] makeArrayFromText(String nameOfFile) {
-        String toInsert = readWarAndPeace(nameOfFile);
-        String newString = toInsert.replaceAll("[:\\.)(,!\";\\r<\\n\\t]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s)|(-\\s)"," ");
-
-        String[] newStrings = newString.replaceAll("\\?","").split("\\s");
-        String[] resultString = new String[newStrings.length];
-        System.arraycopy(newStrings, 0, resultString, 0, newStrings.length);
-        return resultString;
+    public void makeSetCollectionFromText(String nameOfFile) {
+        String toInsert = readBook(nameOfFile);
+        for(String word : toInsert.split(stringCanBeSeparatedBy)) {
+            if(!word.isEmpty()) {
+                if(word.contains("?")){
+                    word=word.replaceAll("\\?","");
+                }
+                this.resultSet.add(word);
+            }
+        }
     }
 
     public int countSetCollectionFromText(String nameOfFile) {
-        String[] resultString = makeArrayFromText(nameOfFile);
-        this.resultSet = new HashSet<>(Arrays.asList(resultString));
-        resultSet.removeAll(Arrays.asList("", null,"-","--"));
         return resultSet.size();
     }
 
@@ -60,9 +61,16 @@ public class WarAndPeace implements Iterable<String>{
     }
 
     public List<String> makeListCollectionFromText(String nameOfFile) {
-        String[] resultString = makeArrayFromText(nameOfFile);
-        List<String> resultList = new ArrayList<>(Arrays.asList(resultString));
-        resultList.removeAll(Arrays.asList("", null, "-", "--"));
+        List<String> resultList = new ArrayList<>();
+        String toInsert = readBook(nameOfFile);
+        for(String word : toInsert.split(stringCanBeSeparatedBy)) {
+            if(!word.isEmpty()) {
+                if(word.contains("?")){
+                    word=word.replaceAll("\\?","");
+                }
+                resultList.add(word);
+            }
+        }
         return resultList;
     }
 
