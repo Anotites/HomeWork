@@ -5,15 +5,12 @@ import home_work_6.api.ISearchEngine;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static home_work_6.WarAndPeace.readWarAndPeace;
-
 public class RegExSearch implements ISearchEngine {
     @Override
     public long search(String text, String word) {
-        String newString = text.replaceAll("\\?", "");
 
-        Pattern pattern = Pattern.compile("[:\\.)(,!\";\\r<\\n;\\s\\?]" + word + "[:\\.)(,!\";\\r<\\n;\\s\\?]");
-        Matcher matcher = pattern.matcher(newString);
+        Pattern pattern = Pattern.compile("[:\\.)(,!\";\\r<\\n\\s\\t\\?]"+ word + "[:\\.)(,!\";\\r<\\n\\s\\t\\?]");
+        Matcher matcher = pattern.matcher(text.replaceAll("\\?", ""));
 
         long quantity = 0;
         while (matcher.find()) {

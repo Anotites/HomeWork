@@ -10,7 +10,7 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine{
 
     @Override
     public long search(String text, String word) {
-        String textPunctuationNormalizer = text.replaceAll("[:\\.)(,!\";\\r<\\n]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s-)|(-\\s)", " ");
+        String textPunctuationNormalizer = text.replaceAll("[:\\.)(,!\";\\r<\\n\\t]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s-)|(-\\s)", " ");
         return this.iSearchEngine.search(textPunctuationNormalizer, word);
     }
 }

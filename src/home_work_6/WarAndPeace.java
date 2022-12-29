@@ -13,8 +13,8 @@ public class WarAndPeace implements Iterable<String>{
 
     Set<String> resultSet;
 
-    WarAndPeace(Set<String> result) {
-        this.resultSet =result;
+    WarAndPeace(Set<String> resultSet) {
+        this.resultSet =resultSet;
     }
 
     public static String readWarAndPeace(String nameOfFile) {
@@ -40,33 +40,34 @@ public class WarAndPeace implements Iterable<String>{
 
     public String[] makeArrayFromText(String nameOfFile) {
         String toInsert = readWarAndPeace(nameOfFile);
-        String newString1 = toInsert.replaceAll("[:\\.)(,!\";\\r<\\n]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s)|(-\\s)"," ");
-        String newString2 = newString1.replaceAll("\\?","");
+        String newString = toInsert.replaceAll("[:\\.)(,!\";\\r<\\n\\t]|(\\?\\s)|(\\?\\r)|(\\?\\n)|(--)|(\\s)|(-\\s)"," ");
 
-        String[] newStrings = newString2.split("\\s");
+        String[] newStrings = newString.replaceAll("\\?","").split("\\s");
         String[] resultString = new String[newStrings.length];
         System.arraycopy(newStrings, 0, resultString, 0, newStrings.length);
         return resultString;
     }
 
-    public int makeSetCollectionFromText(String nameOfFile) {
+    public int countSetCollectionFromText(String nameOfFile) {
         String[] resultString = makeArrayFromText(nameOfFile);
         this.resultSet = new HashSet<>(Arrays.asList(resultString));
         resultSet.removeAll(Arrays.asList("", null,"-","--"));
         return resultSet.size();
     }
 
-    public int makeListCollectionFromText(String nameOfFile) {
+    public int countListCollectionFromText(String nameOfFile) {
+        return makeListCollectionFromText(nameOfFile).size();
+    }
+
+    public List<String> makeListCollectionFromText(String nameOfFile) {
         String[] resultString = makeArrayFromText(nameOfFile);
         List<String> resultList = new ArrayList<>(Arrays.asList(resultString));
         resultList.removeAll(Arrays.asList("", null, "-", "--"));
-        return resultList.size();
+        return resultList;
     }
 
     public String makeMapCollectionFromText(String nameOfFile, int top) {
-        String[] resultString = makeArrayFromText(nameOfFile);
-        List<String> resultList = new ArrayList<>(Arrays.asList(resultString));
-        resultList.removeAll(Arrays.asList("", null,"-","--"));
+        List<String> resultList = makeListCollectionFromText(nameOfFile);
 
         Map<String,Integer> resultMap = new HashMap<>();
         for (String item1:resultList) {
@@ -76,12 +77,7 @@ public class WarAndPeace implements Iterable<String>{
 
         List<Map.Entry<String,Integer>> entryList = new ArrayList<>(resultMap.entrySet());
 
-        entryList.sort(new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o2.getValue() - o1.getValue();
-            }
-        });
+        entryList.sort((o1, o2) -> o2.getValue() - o1.getValue());
 
         StringBuilder sortResult= new StringBuilder();
         for (int i = 0; i < top; i++) {

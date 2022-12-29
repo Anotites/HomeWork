@@ -1,2 +1,4 @@
-package home_work_6;public class Books {
+package home_work_6;
+
+public class Books {
 }
