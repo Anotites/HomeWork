@@ -1,8 +1,8 @@
 package additional.files;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -15,7 +15,7 @@ public class Directories implements Iterable<String> {
      * @param directory Директория.
      * @param items     Коллекция для заполнения.
      */
-    public static void findItemsFromDirectories(File directory, List<Something> items) {
+    public static void findItemsFromDirectories(File directory, ArrayList<Something> items) {
         File[] directories = directory.listFiles();
         assert directories != null;
         for (File item : directories) {
@@ -42,7 +42,7 @@ public class Directories implements Iterable<String> {
      * @param items Коллекция объектов.
      * @return Сколько в коллекции объектов с полем "isFolder" = true.
      */
-    public static int quantityFolder(List<Something> items) {
+    public static int quantityFolder(ArrayList<Something> items) {
         int check = 0;
         for (Something item : items) {
             if (item.isFolder()) {
@@ -58,7 +58,7 @@ public class Directories implements Iterable<String> {
      * @param items Коллекция объектов.
      * @return Сколько в коллекции объектов с полем "isFile" = true.
      */
-    public static int quantityFile(List<Something> items) {
+    public static int quantityFile(ArrayList<Something> items) {
         int check = 0;
         for (Something item : items) {
             if (item.isFile()) {
@@ -74,7 +74,7 @@ public class Directories implements Iterable<String> {
      * @param items Коллекция объектов.
      * @return Сколько в коллекции объектов с полем "isHidden" = true.
      */
-    public static int quantityHidden(List<Something> items) {
+    public static int quantityHidden(ArrayList<Something> items) {
         int check = 0;
         for (Something item : items) {
             if (item.isHidden()) {
@@ -90,7 +90,7 @@ public class Directories implements Iterable<String> {
      * @param items Коллекция объектов.
      * @return Сколько в коллекции объектов с полем "isTxt" = true.
      */
-    public static int quantityTxt(List<Something> items) {
+    public static int quantityTxt(ArrayList<Something> items) {
         int check = 0;
         for (Something item : items) {
             if (item.isTxt()) {

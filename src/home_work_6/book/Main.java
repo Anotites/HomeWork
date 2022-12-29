@@ -2,14 +2,13 @@ package additional.files;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 import static additional.files.Directories.*;
 import static additional.files.Scanner.scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<Something> items = new ArrayList<>();
+        ArrayList<Something> items = new ArrayList<>();
         String file = scanner();
         File directory = new File(file);
         findItemsFromDirectories(directory, items);
