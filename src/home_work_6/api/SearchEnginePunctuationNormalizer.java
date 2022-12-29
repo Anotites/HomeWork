@@ -4,7 +4,7 @@ public class SearchEnginePunctuationNormalizer implements ISearchEngine{
 
     private ISearchEngine iSearchEngine;
 
-    public SearchEnginePunctuationNormalizer (ISearchEngine iSearchEngine) {
+    public SearchEnginePunctuationNormalizer(ISearchEngine iSearchEngine) {
         this.iSearchEngine=iSearchEngine;
     }
 

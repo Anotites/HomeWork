@@ -73,7 +73,7 @@ public class Generator {
      * @return Рандомное имя (настоящее имя).
      */
     public static String randomNameFromFile() {
-        String[] names = dataFromFiles("names.txt");
+        String[] names = dataFromFiles("src/additional/collections/names.txt");
         Random random = new Random();
         return names[random.nextInt(names.length)];
     }
@@ -97,7 +97,7 @@ public class Generator {
      * @return Рандомное имя животного (настоящая кличка).
      */
     public static String randomNickForAnimalFromFile() {
-        String[] nicks = dataFromFiles("nicks.txt");
+        String[] nicks = dataFromFiles("src/additional/collections/nicks.txt");
         Random random = new Random();
         return nicks[random.nextInt(nicks.length)];
     }
@@ -108,7 +108,7 @@ public class Generator {
      * @return Рандомный ник.
      */
     public static String randomPersonNickFromFile() {
-        String[] nicks = dataFromFiles("personNicks.txt");
+        String[] nicks = dataFromFiles("src/additional/collections/personNicks.txt");
         Random random = new Random();
         return nicks[random.nextInt(nicks.length)];
     }
