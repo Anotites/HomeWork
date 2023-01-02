@@ -9,27 +9,34 @@ import java.io.IOException;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class WarAndPeace implements Iterable<String>{
+public class WarAndPeace implements Iterable<String> {
 
-    Set<String> resultSet;
-    public static final String stringCanBeSeparatedBy =
+    private Set<String> resultSet;
+    private static final String stringCanBeSeparatedBy =
             "([<>=\"#\\[$;%&':)(*+,!./@\\]^_`{|}~])|(\\?[^a-zA-ZА-Яа-я0-9])|(-\\s)|(\\s-)|(\\s)|(--)";
 
-    WarAndPeace(Set<String> resultSet) {
-        this.resultSet =resultSet;
+    public WarAndPeace(Set<String> resultSet) {
+        this.resultSet = resultSet;
     }
 
+    /**
+     * Метод, который позволяет прочитать текстовый файл
+     * и поместить текст из данного текстового файла в строку.
+     *
+     * @param nameOfFile Имя файла.
+     * @return Строка, содержащая всю текстовую информацию из файла.
+     */
     public static String readBook(String nameOfFile) {
         String text = "";
         try (BufferedReader reader
                      = new BufferedReader(
-                            new FileReader(nameOfFile)
-                       )
+                new FileReader(nameOfFile)
+        )
         ) {
             StringBuilder builder = new StringBuilder();
             String data;
             while ((data = reader.readLine()) != null) {
-                builder.append(data);
+                builder.append(data).append(" ");
             }
             text = builder.toString();
         } catch (FileNotFoundException e1) {
@@ -40,33 +47,59 @@ public class WarAndPeace implements Iterable<String>{
         return text;
     }
 
+    /**
+     * Метод, который все слова из строки, полученной из метода readBook, помещает в коллекцию Set.
+     * Получается список уникальных слов.
+     *
+     * @param nameOfFile Имя файла, из которого читается строка.
+     */
     public void makeSetCollectionFromText(String nameOfFile) {
         String toInsert = readBook(nameOfFile);
-        for(String word : toInsert.split(stringCanBeSeparatedBy)) {
-            if(!word.isEmpty()) {
-                if(word.contains("?")){
-                    word=word.replaceAll("\\?","");
+        for (String word : toInsert.split(stringCanBeSeparatedBy)) {
+            if (!word.isEmpty()) {
+                if (word.contains("?")) {
+                    word = word.replaceAll("\\?", "");
                 }
                 this.resultSet.add(word);
             }
         }
     }
 
-    public int countSetCollectionFromText(String nameOfFile) {
+    /**
+     * Метод, выводит количество всех слов из строки, полученной из метода readBook, помещенных в коллекцию
+     * Set. Список слов уникальный.
+     *
+     * @return Количество слов.
+     */
+    public int countSetCollectionFromText() {
         return resultSet.size();
     }
 
+    /**
+     * Метод, выводит количество всех слов из строки, полученной из метода readBook, помещенных в коллекцию
+     * List. Список слов не уникальный.
+     *
+     * @param nameOfFile Имя файла, из которого читается строка.
+     * @return Количество слов.
+     */
     public int countListCollectionFromText(String nameOfFile) {
         return makeListCollectionFromText(nameOfFile).size();
     }
 
+    /**
+     * Метод, который все слова из строки, полученной из метода readBook, помещает в коллекцию List.
+     * Получается список всех использованных слов (с повторением).
+     *
+     * @param nameOfFile Имя файла, из которого читается строка.
+     * @return Коллекция со всеми словами.
+     */
     public List<String> makeListCollectionFromText(String nameOfFile) {
         List<String> resultList = new ArrayList<>();
         String toInsert = readBook(nameOfFile);
-        for(String word : toInsert.split(stringCanBeSeparatedBy)) {
-            if(!word.isEmpty()) {
-                if(word.contains("?")){
-                    word=word.replaceAll("\\?","");
+        for (String word : toInsert.split(stringCanBeSeparatedBy)) {
+            if (!word.isEmpty()) {
+                if (word.contains("?")) {
+                    word = word.replaceAll("\\?", "");
                 }
                 resultList.add(word);
             }
@@ -74,30 +107,51 @@ public class WarAndPeace implements Iterable<String>{
         return resultList;
     }
 
+    /**
+     * Метод, который создает коллекцию Map из коллекции List. Key - уникальное слово. Value - количество
+     * повторений.
+     *
+     * @param nameOfFile Имя файла, из которого читается строка.
+     * @param top        Сколько слов должно быть в топе.
+     * @return Строка, которая содержит информацию о самых популярных словах и их количестве.
+     */
     public String makeMapCollectionFromText(String nameOfFile, int top) {
         List<String> resultList = makeListCollectionFromText(nameOfFile);
 
-        Map<String,Integer> resultMap = new HashMap<>();
-        for (String item1:resultList) {
-            if(resultMap.containsKey(item1)) {
-                resultMap.put(item1,resultMap.get(item1)+1);
-        } else {resultMap.put(item1,1);}}
+        Map<String, Integer> resultMap = new HashMap<>();
+        for (String item1 : resultList) {
+            if (resultMap.containsKey(item1)) {
+                resultMap.put(item1, resultMap.get(item1) + 1);
+            } else {
+                resultMap.put(item1, 1);
+            }
+        }
 
-        List<Map.Entry<String,Integer>> entryList = new ArrayList<>(resultMap.entrySet());
+        List<Map.Entry<String, Integer>> entryList = new ArrayList<>(resultMap.entrySet());
 
         entryList.sort((o1, o2) -> o2.getValue() - o1.getValue());
 
-        StringBuilder sortResult= new StringBuilder();
+        StringBuilder sortResult = new StringBuilder();
         for (int i = 0; i < top; i++) {
             sortResult.append(entryList.get(i).getKey()).append(" - ").append(entryList.get(i).getValue()).append("; ");
         }
         return sortResult.toString();
     }
 
+    /**
+     * Метод выводит коллекцию Set со всеми уникальными словами.
+     *
+     * @return Коллекция Set со всеми уникальными словами.
+     */
     public Set<String> readCollectionFromText() {
         return this.resultSet;
     }
 
+    /**
+     * Метод выводит коллекцию List со всеми уникальными словами в алфавитном порядке.
+     *
+     * @return Коллекция List со всеми уникальными словами в алфавитном порядке.
+     */
     public List<String> sortAlphabet() {
         List<String> sortList = new ArrayList<>(this.resultSet);
         sortList.sort(new ComparatorAlphabet());

@@ -3,34 +3,65 @@ package home_work_6;
 import home_work_6.api.ISearchEngine;
 
 public class EasySearch implements ISearchEngine {
+
+    private final String[] symbols = new String[]{",", " ", ".", "!", "--", ":", ")", "(",
+            "\"", "<", ";", "? ", " -", "[", "- "};
+
+    /**
+     * Метод, который выводит, сколько раз встречается в тексте слово (при помощи метода indexOf).
+     *
+     * @param text Текст, в котором производится поиск.
+     * @param word Слово, которое ищут.
+     * @return Сколько раз слово встречается в тексте.
+     */
     @Override
     public long search(String text, String word) {
-        String toInsert1 = text.replace(",", "_");
-        String toInsert2 = toInsert1.replace(".", "_");
-        String toInsert3 = toInsert2.replace("!", "_");
-        String toInsert4 = toInsert3.replace("--", "_");
-        String toInsert5 = toInsert4.replace(":", "_");
-        String toInsert6 = toInsert5.replace(")", "_");
-        String toInsert7 = toInsert6.replace("(", "_");
-        String toInsert8 = toInsert7.replace("\"", "_");
-        String toInsert9 = toInsert8.replace("<", "_");
-        String toInsert10 = toInsert9.replace(";", "_");
-        String toInsert11 = toInsert10.replace("? ", "_");
-        String toInsert12 = toInsert11.replace(" -", "_");
-        String toInsert13 = toInsert12.replace(" ", "_");
-        String toInsert14 = toInsert13.replace("?", "");
-        String toInsert15 = "_"+toInsert14+"_";
+        String toCheck = text.replace("?", "");
 
-        int position = 0;
+        int position = 2;
         long quantity = 0;
+        int start = 0;
+        int end;
 
-        word="_"+word+"_";
-
-        while (toInsert15.indexOf(word, position) != -1) {
-            position = toInsert15.indexOf(word, position) + 1;
-            quantity++;
+        if (toCheck.indexOf(word) == 0) {
+            for (String lastSymbol : symbols) {
+                String newWord = word + lastSymbol;
+                end = word.length() + lastSymbol.length();
+                String check = toCheck.substring(start, end);
+                if (newWord.equals(check)) {
+                    quantity = 1;
+                    break;
+                }
+            }
         }
 
+        while (toCheck.indexOf(word, position) != -1) {
+            position = toCheck.indexOf(word, position);
+            outer:
+            for (String firstSymbol : symbols) {
+                for (String lastSymbol : symbols) {
+                    String newWord = firstSymbol + word + lastSymbol;
+                    start = position - firstSymbol.length();
+                    end = position + word.length() + lastSymbol.length();
+                    if (end >= toCheck.length()) {
+                        start = toCheck.length() - 1 - word.length();
+                        end = toCheck.length() - 1;
+                        if (word.equals(toCheck.substring(start, end))) {
+                            quantity++;
+                            position = toCheck.length() - 1;
+                            break outer;
+                        }
+                    }
+                    String check = toCheck.substring(start, end);
+                    if (newWord.equals(check)) {
+                        quantity++;
+                        position = toCheck.indexOf(word, position) + 1;
+                        break outer;
+                    }
+                }
+            }
+            position = position + 1;
+        }
         return quantity;
     }
 }

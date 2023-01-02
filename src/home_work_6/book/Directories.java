@@ -6,15 +6,15 @@ import java.util.function.Consumer;
 
 public class Directories implements Iterable<String> {
 
-    List<Book> items;
+    private List<Book> items;
 
     public Directories() {
         this.items = new ArrayList<>();
     }
 
     /**
-     * Метод заполняет коллекцию объектами, поля которого содержат информацию об папке или файле в
-     * директории (а именно, файл ли это, директория ли это, скрытый ли это файл, в формате ли txt файл).
+     * Метод заполняет коллекцию объектами, соответствующих txt файлам, содержащимся в директории.
+     * Объекты будут в поле name содержать название соответствующего txt файла.
      *
      * @param directory Директория.
      */
@@ -33,17 +33,22 @@ public class Directories implements Iterable<String> {
     }
 
     /**
-     * Метод выводит, сколько в коллекции объектов с полем "isTxt" = true.
+     * Метод выводит, сколько в коллекции объектов-книг.
      *
-     * @return Сколько в коллекции объектов с полем "isTxt" = true.
+     * @return Сколько в коллекции объектов-книг.
      */
     public int quantityTxt() {
         return this.items.size();
     }
 
+    /**
+     * Метод, который выводит названия всех книг (выводит данные из поля name объектов Book в коллекции).
+     *
+     * @return Список книг в коллекции.
+     */
     public String readCollection() {
-        StringBuilder allBooks= new StringBuilder();
-        for (Book book:this.items) {
+        StringBuilder allBooks = new StringBuilder();
+        for (Book book : this.items) {
             allBooks.append(book.getName()).append("; ");
         }
         return allBooks.toString();
