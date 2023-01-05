@@ -27,42 +27,63 @@ public class RegExSearch implements ISearchEngine {
 
         long quantity = 0;
         boolean firstWord = false;
+        int wordLength = word.length();
+        int textLength = text.length();
 
-        if (text.indexOf(word) == 0) {
-            for (String lastSymbol : symbols) {
-                String newWord = word + lastSymbol;
-                int end = word.length() + lastSymbol.length();
-                String check = text.substring(0, end);
-                if (newWord.equals(check)) {
-                    quantity = 1;
-                    firstWord = true;
-                    break;
+        if (wordLength == textLength && text.indexOf(word) == 0) {
+            quantity = 1;
+        } else {
+            if (text.indexOf(word) == 0) {
+                for (String lastSymbol : symbols) {
+                    String newWord = word + lastSymbol;
+                    int end = wordLength + lastSymbol.length();
+                    String check = text.substring(0, end);
+                    if (newWord.equals(check)) {
+                        quantity = 1;
+                        firstWord = true;
+                        break;
+                    }
+                }
+            }
+
+            while (matcher.find()) {
+                quantity++;
+            }
+
+            Pattern pattern11 = Pattern.compile("(\s-)" + word + stringCanBeSeparatedBy);
+            Matcher matcher11 = pattern11.matcher(text.replaceAll("\\?", ""));
+
+            while (matcher11.find()) {
+                quantity++;
+            }
+
+            Pattern pattern12 = Pattern.compile("(\s-)" + word + "$");
+            Matcher matcher12 = pattern12.matcher(text.replaceAll("\\?", ""));
+
+            while (matcher12.find()) {
+                quantity++;
+            }
+
+            Pattern pattern2 = Pattern.compile(stringCanBeSeparatedBy + word + "(-\s)");
+            Matcher matcher2 = pattern2.matcher(text.replaceAll("\\?", ""));
+
+            while (matcher2.find()) {
+                quantity++;
+            }
+
+            Pattern pattern3 = Pattern.compile(stringCanBeSeparatedBy + word + "$");
+            Matcher matcher3 = pattern3.matcher(text.replaceAll("\\?", ""));
+
+            while (matcher3.find()) {
+                quantity++;
+            }
+
+            if (firstWord) {
+                if (quantity != 1) {
+                    quantity = quantity - 1;
                 }
             }
         }
-
-        while (matcher.find()) {
-            quantity++;
-        }
-
-        Pattern pattern1 = Pattern.compile("(\s-)" + word + stringCanBeSeparatedBy);
-        Matcher matcher1 = pattern1.matcher(text.replaceAll("\\?", ""));
-
-        while (matcher1.find()) {
-            quantity++;
-        }
-
-        Pattern pattern2 = Pattern.compile(stringCanBeSeparatedBy + word + "(-\s)");
-        Matcher matcher2 = pattern2.matcher(text.replaceAll("\\?", ""));
-
-        while (matcher2.find()) {
-            quantity++;
-        }
-
-        if (firstWord) {
-            quantity = quantity - 1;
-        }
-
         return quantity;
     }
 }

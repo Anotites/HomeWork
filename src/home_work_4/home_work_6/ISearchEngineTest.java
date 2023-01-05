@@ -7,9 +7,67 @@ import home_work_6.api.SearchEngineCapitalLetterNormalizer;
 import home_work_6.api.SearchEngineCaseNormalizer;
 import home_work_6.api.SearchEnginePunctuationNormalizer;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static home_work_6.WarAndPeace.readBook;
 
 public class ISearchEngineTest {
+    @DisplayName("Проверка корректности поиска по заранее заготовленным вариантам")
+    @ParameterizedTest(name = "{index}: {0} Ожидается найденных {3}")
+    @MethodSource("searchParamsWitExpectedCount")
+    public void allTest(ISearchEngine engine, String text, String word, long expected) {
+        Assertions.assertEquals(expected, engine.search(text, word));
+    }
+
+    public static Stream<Arguments> searchParamsWitExpectedCount() {
+        String textFromFile = readBook("src/home_work_6/WarAndPeace_Book.txt");
+
+        List<Arguments> arguments = new ArrayList<>();
+        List<ISearchEngine> engines = new ArrayList<>();
+        engines.add(new EasySearch());
+        engines.add(new RegExSearch());
+        engines.add(new SearchEnginePunctuationNormalizer(new EasySearch()));
+        engines.add(new SearchEnginePunctuationNormalizer(new RegExSearch()));
+
+        for (ISearchEngine engine : engines) {
+            arguments.add(Arguments.arguments(engine, "бабушкабабушка", "бабушка", 0L));
+            arguments.add(Arguments.arguments(engine, "ибабушка", "бабушка", 0L));
+            arguments.add(Arguments.arguments(engine, "бабушка", "бабушка", 1L));
+            arguments.add(Arguments.arguments(engine, "бабушка бабушке бабушку", "бабушку", 1L));
+            arguments.add(Arguments.arguments(engine, "бабушка бабушке бабушку", "бабушке", 1L));
+            arguments.add(Arguments.arguments(engine, "бабушка бабушке бабушку", "бабушка", 1L));
+            arguments.add(Arguments.arguments(engine, "один и 1", "один", 1L));
+            arguments.add(Arguments.arguments(engine, "один и 1", "и", 1L));
+            arguments.add(Arguments.arguments(engine, "один и 1", "1", 1L));
+            arguments.add(Arguments.arguments(engine, "4-х", "4-х", 1L));
+            arguments.add(Arguments.arguments(engine, "Привет -привет", "привет", 1L));
+            arguments.add(Arguments.arguments(engine, "Привет -привет", "Привет", 1L));
+            arguments.add(Arguments.arguments(engine, "Привет-привет", "Привет-привет", 1L));
+            arguments.add(Arguments.arguments(engine, "как дела!.Что делаешь?", "делаешь", 1L));
+            arguments.add(Arguments.arguments(engine, "как дела!.Что делаешь?", "Что", 1L));
+            arguments.add(Arguments.arguments(engine, "как дела!.Что делаешь?", "дела", 1L));
+            arguments.add(Arguments.arguments(engine, "как дела!.Что делаешь?", "как", 1L));
+            arguments.add(Arguments.arguments(engine, "привет;какдела!", "какдела", 1L));
+            arguments.add(Arguments.arguments(engine, "привет;какдела!", "привет", 1L));
+            arguments.add(Arguments.arguments(engine, "привет,какдела!", "какдела", 1L));
+            arguments.add(Arguments.arguments(engine, "привет,какдела!", "привет", 1L));
+            arguments.add(Arguments.arguments(engine, "привет, как дела!", "дела", 1L));
+            arguments.add(Arguments.arguments(engine, "привет, как дела!", "как", 1L));
+            arguments.add(Arguments.arguments(engine, "привет, как дела!", "привет", 1L));
+            arguments.add(Arguments.arguments(engine, textFromFile, "мир", 33L));
+            arguments.add(Arguments.arguments(engine, textFromFile, "война", 46L));
+            arguments.add(Arguments.arguments(engine, textFromFile, "и", 13874L));
+        }
+        return arguments.stream();
+    }
 
     ISearchEngine easySearch = new EasySearch();
     ISearchEngine regExSearch = new RegExSearch();
